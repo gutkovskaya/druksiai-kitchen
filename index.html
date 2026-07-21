@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тех-карты — день «Мисс» 2026 · команда Минск</title>
+<style>
+  :root {
+    --bg: #f6f4ef;
+    --card: #ffffff;
+    --ink: #1e2430;
+    --muted: #667085;
+    --line: #e6e2d8;
+    --accent: #2f6fb0;
+    --accent-soft: #e9f1f9;
+    --accent-line: #bcd6ec;
+    --chip: #eef1f4;
+    --num-bg: #2f6fb0;
+    --shadow: 0 1px 2px rgba(30,36,48,.06), 0 8px 24px rgba(30,36,48,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14171c;
+      --card: #1c2027;
+      --ink: #e7e9ee;
+      --muted: #9aa3b2;
+      --line: #2b313b;
+      --accent: #6aa9e0;
+      --accent-soft: #142230;
+      --accent-line: #274058;
+      --chip: #262c35;
+      --num-bg: #3f7cb5;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 40px 20px 80px; }
+
+  header.page {
+    border-bottom: 2px solid var(--line);
+    padding-bottom: 22px;
+    margin-bottom: 8px;
+  }
+  header.page .kicker {
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0 6px;
+  }
+  header.page h1 {
+    font-size: 30px;
+    line-height: 1.2;
+    margin: 0 0 10px;
+  }
+  header.page p.sub { margin: 0; color: var(--muted); font-size: 15px; }
+
+  .menu-board {
+    margin: 28px 0 10px;
+  }
+  .menu-board > .mb-title {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0 14px;
+    text-align: center;
+  }
+  .meals {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 680px) {
+    .meals { grid-template-columns: 1fr; }
+  }
+  .meal {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px 20px 22px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .meal::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 4px;
+    background: var(--accent);
+    opacity: .85;
+  }
+  .meal .meal-head {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .meal .meal-head .ic { font-size: 22px; line-height: 1; }
+  .meal .meal-head h3 { margin: 0; font-size: 18px; }
+  .meal ul { list-style: none; margin: 0; padding: 0; }
+  .meal ul li {
+    position: relative;
+    padding: 6px 0 6px 28px;
+    font-size: 14.5px;
+  }
+  .meal ul li .di {
+    position: absolute;
+    left: 0; top: 5px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  .meal ul li.drink { color: var(--muted); }
+
+  .menu-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 18px;
+    margin: 16px 0 0;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .menu-legend span { white-space: nowrap; }
+  .menu-legend span b { font-size: 15px; margin-right: 3px; }
+  .meal .to-table {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .meal .to-table b { color: var(--ink); font-weight: 600; }
+
+  .toc {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin: 26px 0 10px;
+    box-shadow: var(--shadow);
+  }
+  .toc h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 10px; }
+  .toc ol { margin: 0; padding-left: 20px; }
+  .toc li { margin: 4px 0; }
+  .toc a { color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; }
+  .toc a:hover { border-bottom-color: var(--accent); color: var(--accent); }
+  .toc .todo { color: var(--muted); font-style: italic; }
+
+  .dish {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px 28px 30px;
+    margin: 26px 0;
+    box-shadow: var(--shadow);
+  }
+  .dish > h2 {
+    font-size: 23px;
+    margin: 0 0 4px;
+    scroll-margin-top: 20px;
+  }
+  .dish .meal-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+    border-radius: 999px;
+    padding: 3px 10px;
+    margin-bottom: 14px;
+  }
+
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
+    margin: 6px 0 22px;
+  }
+  .fact {
+    background: var(--chip);
+    border-radius: 12px;
+    padding: 12px 14px;
+  }
+  .fact .label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+  .fact .value { font-size: 20px; font-weight: 700; margin-top: 2px; }
+  .fact .value small { font-size: 13px; font-weight: 600; color: var(--muted); }
+
+  .block-title {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--muted);
+    margin: 24px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .block-title::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  table.ingredients {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  table.ingredients th {
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--muted);
+    font-weight: 600;
+    padding: 0 10px 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  table.ingredients th.qty, table.ingredients td.qty { text-align: right; white-space: nowrap; }
+  table.ingredients td {
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  table.ingredients tr:last-child td { border-bottom: none; }
+  table.ingredients td.qty { font-variant-numeric: tabular-nums; font-weight: 700; }
+  table.ingredients td .note { display: block; font-size: 12.5px; color: var(--muted); font-weight: 400; }
+
+  ol.steps { counter-reset: step; list-style: none; margin: 0; padding: 0; }
+  ol.steps li {
+    position: relative;
+    padding: 4px 0 16px 46px;
+    min-height: 30px;
+  }
+  ol.steps li:last-child { padding-bottom: 0; }
+  ol.steps li::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 0;
+    width: 30px; height: 30px;
+    background: var(--num-bg);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  ol.steps li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 14px; top: 34px; bottom: 6px;
+    width: 2px;
+    background: var(--line);
+  }
+
+  .callout {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  .callout strong { color: var(--accent); }
+
+  .tips { display: grid; gap: 12px; }
+  .tip {
+    background: var(--chip);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .tip h4 {
+    margin: 0 0 5px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tip h4 .ic { font-size: 17px; }
+  .tip p { margin: 0; font-size: 14px; color: var(--ink); }
+  .tip p .muted { color: var(--muted); }
+  .tip ul { margin: 8px 0 0; padding-left: 20px; font-size: 14px; }
+  .tip ul li { margin: 4px 0; }
+  .tips-intro { font-size: 14.5px; margin: 0 0 14px; }
+  .tips-intro p { margin: 0 0 10px; }
+  .tips-intro p:last-child { margin-bottom: 0; }
+  .tip.best {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+  }
+  .tip .badge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: #fff;
+    background: var(--accent);
+    border-radius: 999px;
+    padding: 2px 8px;
+    margin-left: auto;
+  }
+  .placeholder {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 14px;
+    background: var(--chip);
+    border-radius: 12px;
+    padding: 12px 16px;
+  }
+
+  footer.page {
+    margin-top: 40px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+  }
+
+  /* ---- Сворачивание блюд ---- */
+  .dish { padding-top: 0; padding-bottom: 0; overflow: hidden; }
+  .dish-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 22px 4px 22px 0;
+    user-select: none;
+  }
+  .dish-head h2 { margin: 0; font-size: 21px; }
+  .dish-head .meal-tag { margin: 0; }
+  .dish-head .dish-chev {
+    margin-left: auto;
+    flex: none;
+    border: 1px solid var(--accent-line);
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 7px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    white-space: nowrap;
+    transition: background .15s ease, color .15s ease;
+  }
+  .dish-head .dish-chev::before { content: "Подробно"; }
+  .dish.open .dish-head .dish-chev::before { content: "Свернуть"; }
+  .dish-head:hover .dish-chev { background: var(--accent); color: #fff; }
+  .dish-body { padding: 0 0 28px; }
+  .dish:not(.open) .dish-body { display: none; }
+  .dish-head:hover h2 { color: var(--accent); }
+
+  /* ---- Команды в этот день ---- */
+  .teams {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px 28px 26px;
+    margin: 26px 0;
+    box-shadow: var(--shadow);
+  }
+  .teams > h2 { font-size: 20px; margin: 0 0 4px; }
+  .teams > .t-sub { margin: 0 0 16px; color: var(--muted); font-size: 14px; }
+  table.teams-tbl { width: 100%; border-collapse: collapse; font-size: 15px; }
+  table.teams-tbl th {
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--muted);
+    font-weight: 600;
+    padding: 0 12px 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  table.teams-tbl th.num, table.teams-tbl td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  table.teams-tbl td { padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  table.teams-tbl td.num { font-weight: 700; }
+  table.teams-tbl tr.us td { background: var(--accent-soft); }
+  table.teams-tbl tr.us td:first-child { border-radius: 8px 0 0 8px; font-weight: 700; }
+  table.teams-tbl tr.us td:last-child { border-radius: 0 8px 8px 0; }
+  table.teams-tbl .tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    color: var(--accent);
+    margin-left: 8px;
+  }
+  table.teams-tbl tr.total td {
+    border-bottom: none;
+    border-top: 2px solid var(--line);
+    font-weight: 700;
+    font-size: 16px;
+    padding-top: 12px;
+  }
+  .teams .t-note { margin: 12px 0 0; font-size: 12.5px; color: var(--muted); }
+
+  /* ---- Список закупок ---- */
+  .buylist {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 26px 28px 28px;
+    margin: 26px 0;
+    box-shadow: var(--shadow);
+  }
+  .buylist > h2 { font-size: 22px; margin: 0 0 4px; }
+  .buylist > .bl-sub { margin: 0 0 8px; color: var(--muted); font-size: 14px; }
+  .buylist .bl-actions { margin: 0 0 6px; }
+  .buylist .bl-actions button {
+    font: inherit;
+    font-size: 13px;
+    color: var(--accent);
+    background: none;
+    border: 1px solid var(--accent-line);
+    border-radius: 999px;
+    padding: 4px 12px;
+    cursor: pointer;
+  }
+  .buylist .bl-actions button:hover { background: var(--accent-soft); }
+  .buylist h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--accent);
+    margin: 22px 0 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  ul.checklist { list-style: none; margin: 0; padding: 0; }
+  ul.checklist li { margin: 0; }
+  ul.checklist label {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 8px 6px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  ul.checklist label:hover { background: var(--chip); }
+  ul.checklist input { margin: 0; width: 17px; height: 17px; flex: none; position: relative; top: 2px; accent-color: var(--accent); }
+  ul.checklist .it { flex: 1; font-size: 14.5px; }
+  ul.checklist .it em { color: var(--muted); font-style: normal; font-size: 12.5px; }
+  ul.checklist .q { font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; font-size: 14px; }
+  ul.checklist input:checked ~ .it,
+  ul.checklist input:checked ~ .q { text-decoration: line-through; color: var(--muted); font-weight: 400; }
+  .buylist .bl-total {
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 2px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 15px;
+  }
+  .buylist .bl-total b { font-size: 19px; }
+  .buylist .bl-note { margin-top: 10px; font-size: 12.5px; color: var(--muted); }
+
+  @media print {
+    body { background: #fff; }
+    .dish, .toc, .buylist { box-shadow: none; break-inside: avoid; }
+    .dish:not(.open) .dish-body { display: block; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="page">
+    <p class="kicker">Друкшяй · команда Минск</p>
+    <h1>Технологические карты — день «Мисс» 2026</h1>
+    <p class="sub">Питание на весь лагерь — расчёт на 220 человек.</p>
+  </header>
+
+  <section class="menu-board">
+    <p class="mb-title">Меню дня</p>
+    <div class="meals">
+
+      <div class="meal">
+        <div class="meal-head"><span class="ic">🌅</span><h3>Завтрак</h3></div>
+        <ul>
+          <li><span class="di" title="курица">🐔</span>Куриный суп</li>
+          <li><span class="di" title="свинина">🐷</span>Хот-доги</li>
+          <li class="drink"><span class="di" title="без мяса">🌿</span>Чай с лимоном и сахаром</li>
+        </ul>
+      </div>
+
+      <div class="meal">
+        <div class="meal-head"><span class="ic">🍲</span><h3>Обед</h3></div>
+        <ul>
+          <li><span class="di" title="без мяса">🌿</span>Грибной суп</li>
+          <li><span class="di" title="курица">🐔</span>Пюре с хрустящим луком и куриной котлетой</li>
+          <li><span class="di" title="без мяса">🌿</span>Капуста провансаль</li>
+          <li class="drink"><span class="di" title="без мяса">🌿</span>Безалкогольный освежающий мохито</li>
+        </ul>
+        <div class="to-table"><b>К столу:</b> сметана, хлеб, батон</div>
+      </div>
+
+      <div class="meal">
+        <div class="meal-head"><span class="ic">🌙</span><h3>Ужин</h3></div>
+        <ul>
+          <li style="padding-left:46px"><span class="di" title="свинина, острое">🐷🌶️</span>Паста болоньезе</li>
+          <li><span class="di" title="без мяса">🌿</span>Кукуруза с паприкой</li>
+          <li class="drink"><span class="di" title="без мяса">🌿</span>Морс из диких ягод</li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="menu-legend">
+      <span><b>🐷</b> свинина</span>
+      <span><b>🐮</b> говядина</span>
+      <span><b>🐔</b> курица</span>
+      <span><b>🌶️</b> острое</span>
+      <span><b>🌿</b> без мяса</span>
+    </div>
+  </section>
+
+  <section class="teams" id="teams">
+    <h2>Команды в этот день</h2>
+    <p class="t-sub">Сколько человек в каждой команде — чтобы кухне было проще отдавать блюда.</p>
+    <table class="teams-tbl">
+      <thead>
+        <tr><th>Команда</th><th class="num">Человек</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Великий Новгород</td><td class="num">28</td></tr>
+        <tr class="us"><td>Минск <span class="tag">наша</span></td><td class="num">38</td></tr>
+        <tr><td>Таллинн</td><td class="num">16</td></tr>
+        <tr><td>Горизонт <span class="tag">большая</span></td><td class="num">61</td></tr>
+        <tr><td>Рига</td><td class="num">31</td></tr>
+        <tr><td>Атом</td><td class="num">22</td></tr>
+        <tr><td>Каунас</td><td class="num">9</td></tr>
+        <tr class="total"><td>Всего</td><td class="num">205</td></tr>
+      </tbody>
+    </table>
+    <p class="t-note">Итого 205 человек. Раскладка блюд считается на 220 порций — небольшой запас сверху.</p>
+  </section>
+
+  <nav class="toc">
+    <h2>Тех-карты по блюдам</h2>
+    <ol>
+      <li><a href="#kur-sup">Куриный суп</a> — завтрак</li>
+      <li><a href="#hotdog">Хот-доги</a> — завтрак</li>
+      <li><a href="#chai">Чай с лимоном и сахаром</a> — завтрак</li>
+      <li><a href="#grib-sup">Грибной суп</a> — обед</li>
+      <li><a href="#pyure">Картофельное пюре с хрустящим луком</a> — обед</li>
+      <li><a href="#kotlety">Куриные котлеты</a> — обед</li>
+      <li><a href="#kapusta">Капуста провансаль</a> — обед</li>
+      <li><a href="#mojito">Безалкогольный мохито</a> — обед</li>
+      <li><a href="#bolognese">Паста болоньезе</a> — ужин</li>
+      <li><a href="#kukuruza">Кукуруза с паприкой</a> — ужин</li>
+      <li><a href="#mors">Морс из диких ягод</a> — ужин</li>
+    </ol>
+  </nav>
+
+  <!-- ==================== СПИСОК ЗАКУПОК ==================== -->
+  <section class="buylist" id="buylist">
+    <h2>Список продуктов к закупке</h2>
+    <p class="bl-sub">Сводно по всем блюдам на 220 человек. Отметки о покупке сохраняются в этом браузере.</p>
+    <div class="bl-actions"><button type="button" id="bl-reset">Сбросить отметки</button></div>
+
+    <h3>Мясо и колбасные</h3>
+    <ul class="checklist">
+      <li><label><input type="checkbox" data-k="myaso-kur"><span class="it">Куриное мясо, мякоть <em>— котлеты</em></span><span class="q">22,6 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="kurica"><span class="it">Курица целая, суповая <em>— куриный суп</em></span><span class="q">6 шт (~10 кг)</span></label></li>
+      <li><label><input type="checkbox" data-k="farsh"><span class="it">Фарш курица + свинина <em>— болоньезе</em></span><span class="q">8,8 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="kolbaska"><span class="it">Колбаска баварская <em>— хот-доги</em></span><span class="q">220 шт</span></label></li>
+    </ul>
+
+    <h3>Овощи, фрукты, зелень</h3>
+    <ul class="checklist">
+      <li><label><input type="checkbox" data-k="kartofel"><span class="it">Картофель <em>— супы, пюре</em></span><span class="q">~66 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="luk"><span class="it">Лук репчатый <em>— супы, котлеты, болоньезе</em></span><span class="q">~10,7 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="morkov"><span class="it">Морковь <em>— грибной суп, капуста</em></span><span class="q">~4,3 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="chesnok"><span class="it">Чеснок <em>— капуста, болоньезе</em></span><span class="q">~0,95 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="kapusta"><span class="it">Капуста белокочанная <em>— провансаль</em></span><span class="q">18 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="ogurcy"><span class="it">Огурцы бургерные маринованные <em>— хот-доги</em></span><span class="q">2,6 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="veshenki"><span class="it">Вешенки <em>— грибной суп</em></span><span class="q">4,4 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="kukuruza"><span class="it">Кукуруза молодая, початки <em>— кукуруза</em></span><span class="q">~55 шт</span></label></li>
+      <li><label><input type="checkbox" data-k="limony"><span class="it">Лимоны <em>— чай</em></span><span class="q">~0,9 кг (~7 шт)</span></label></li>
+      <li><label><input type="checkbox" data-k="laym"><span class="it">Лайм <em>— мохито</em></span><span class="q">2,6 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="zelen"><span class="it">Зелень: укроп, петрушка <em>— супы, пюре, болоньезе</em></span><span class="q">~1 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="bazilik"><span class="it">Базилик свежий <em>— болоньезе</em></span><span class="q">130 г</span></label></li>
+      <li><label><input type="checkbox" data-k="myata"><span class="it">Мята свежая <em>— мохито</em></span><span class="q">440 г</span></label></li>
+      <li><label><input type="checkbox" data-k="ostryj-perec"><span class="it">Острый перец <em>— болоньезе</em></span><span class="q">44 г</span></label></li>
+    </ul>
+
+    <h3>Молочное и яйца</h3>
+    <ul class="checklist">
+      <li><label><input type="checkbox" data-k="moloko"><span class="it">Молоко <em>— пюре, котлеты</em></span><span class="q">~12,6 л</span></label></li>
+      <li><label><input type="checkbox" data-k="maslo-sliv"><span class="it">Масло сливочное <em>— пюре, кукуруза</em></span><span class="q">3,6 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="smetana"><span class="it">Сметана <em>— к столу, обед; по 1 на команду, Горизонт двойной</em></span><span class="q">8 пачек</span></label></li>
+      <li><label><input type="checkbox" data-k="yajca"><span class="it">Яйца <em>— котлеты</em></span><span class="q">23 шт</span></label></li>
+    </ul>
+
+    <h3>Бакалея, крупы, специи</h3>
+    <ul class="checklist">
+      <li><label><input type="checkbox" data-k="spagetti"><span class="it">Спагетти <em>— болоньезе</em></span><span class="q">13,2 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="vermishel"><span class="it">Вермишель мелкая <em>— куриный суп</em></span><span class="q">1,8 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="perlovka"><span class="it">Перловка <em>— грибной суп</em></span><span class="q">1,3 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="suhari"><span class="it">Панировочные сухари <em>— котлеты</em></span><span class="q">~3,5 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="hleb-belyj"><span class="it">Хлеб белый <em>— котлеты</em></span><span class="q">4,51 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="zharenyj-luk"><span class="it">Хрустящий жареный лук, готовый <em>— топпинг к пюре</em></span><span class="q">~1,3 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="sahar"><span class="it">Сахар <em>— чай, капуста</em></span><span class="q">3,4 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="sol"><span class="it">Соль <em>— почти все блюда</em></span><span class="q">~2,9 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="maslo-rast"><span class="it">Масло растительное <em>— обжарки, котлеты, капуста</em></span><span class="q">~4,6 л</span></label></li>
+      <li><label><input type="checkbox" data-k="tom-pasta"><span class="it">Томатная паста <em>— болоньезе</em></span><span class="q">1,8 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="uksus"><span class="it">Уксус 9% <em>— капуста</em></span><span class="q">1,2 л</span></label></li>
+      <li><label><input type="checkbox" data-k="chaj"><span class="it">Чай рассыпной <em>— чай</em></span><span class="q">130 г</span></label></li>
+      <li><label><input type="checkbox" data-k="lim-kislota"><span class="it">Лимонная кислота <em>— чай, морс</em></span><span class="q">~35 г</span></label></li>
+      <li><label><input type="checkbox" data-k="kurkuma"><span class="it">Куркума <em>— капуста</em></span><span class="q">13 г</span></label></li>
+      <li><label><input type="checkbox" data-k="paprika"><span class="it">Паприка <em>— кукуруза</em></span><span class="q">53 г</span></label></li>
+      <li><label><input type="checkbox" data-k="perec-molotyj"><span class="it">Перец чёрный молотый <em>— супы, котлеты, болоньезе</em></span><span class="q">~140 г</span></label></li>
+      <li><label><input type="checkbox" data-k="perec-goroshek"><span class="it">Перец горошком <em>— капуста</em></span><span class="q">~90 шт</span></label></li>
+      <li><label><input type="checkbox" data-k="lavr"><span class="it">Лавровый лист <em>— супы, капуста</em></span><span class="q">~90 г</span></label></li>
+      <li><label><input type="checkbox" data-k="gvozdika"><span class="it">Гвоздика <em>— капуста</em></span><span class="q">72 шт</span></label></li>
+      <li><label><input type="checkbox" data-k="ketchup"><span class="it">Кетчуп <em>— хот-доги</em></span><span class="q">1,8 л</span></label></li>
+      <li><label><input type="checkbox" data-k="gorchica"><span class="it">Горчица <em>— хот-доги</em></span><span class="q">1,8 л</span></label></li>
+    </ul>
+
+    <h3>Напитки, сиропы, вода</h3>
+    <ul class="checklist">
+      <li><label><input type="checkbox" data-k="limonad"><span class="it">Лимонадная основа <em>— мохито</em></span><span class="q">17 бут × 2 л</span></label></li>
+      <li><label><input type="checkbox" data-k="sirop-malina"><span class="it">Малиновый сироп <em>— морс</em></span><span class="q">3 бут</span></label></li>
+      <li><label><input type="checkbox" data-k="sirop-vishnya"><span class="it">Вишнёвый сироп <em>— морс</em></span><span class="q">1 бут</span></label></li>
+      <li><label><input type="checkbox" data-k="voda-led"><span class="it">Вода питьевая в бутылках <em>— заморозить на лёд, мохито</em></span><span class="q">14 бут</span></label></li>
+    </ul>
+
+    <h3>Хлеб к столу и расходники</h3>
+    <ul class="checklist">
+      <li><label><input type="checkbox" data-k="hleb-stol"><span class="it">Хлеб <em>— к столу, обед; по 1 на команду, Горизонт двойной</em></span><span class="q">8 буханок</span></label></li>
+      <li><label><input type="checkbox" data-k="baton"><span class="it">Батон <em>— к столу, обед; по 1 на команду, Горизонт двойной</em></span><span class="q">8 батонов</span></label></li>
+      <li><label><input type="checkbox" data-k="ugolki"><span class="it">Бумажные уголки <em>— хот-доги</em></span><span class="q">220 шт</span></label></li>
+      <li><label><input type="checkbox" data-k="marlya"><span class="it">Марля <em>— заварка чая</em></span><span class="q">1–2 м</span></label></li>
+    </ul>
+
+    <div class="bl-total"><span>Ориентировочная стоимость</span><b>≈ 1480 BYN</b></div>
+    <p class="bl-note">Расчёт на 220 человек. Цены — грубая прикидка, требуют сверки в магазинах. Детальный расчёт по позициям — в Google Таблице в папке «DRUKSIAI 2026». Хлеб, батон и сметана — на 8 долей: Горизонт большая команда, ей двойной объём.</p>
+  </section>
+
+  <!-- ==================== КУРИНЫЙ СУП ==================== -->
+  <section class="dish" id="kur-sup">
+    <h2>Куриный суп</h2>
+    <span class="meal-tag">Завтрак</span>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="label">Порций</div>
+        <div class="value">220</div>
+      </div>
+      <div class="fact">
+        <div class="label">Порция</div>
+        <div class="value">300 <small>г</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Всего супа</div>
+        <div class="value">~66 <small>л</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Основа бульона</div>
+        <div class="value">6 <small>куриц</small></div>
+      </div>
+    </div>
+
+    <div class="block-title">Ингредиенты на 220 порций</div>
+    <table class="ingredients">
+      <thead>
+        <tr>
+          <th>Продукт</th>
+          <th class="qty">Количество</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Курица<span class="note">для бульона, целиком</span></td><td class="qty">6 шт. (~10 кг)</td></tr>
+        <tr><td>Вода<span class="note">для бульона</span></td><td class="qty">~62 л</td></tr>
+        <tr><td>Картофель<span class="note">кубиками</span></td><td class="qty">7 кг</td></tr>
+        <tr><td>Репчатый лук<span class="note">обжарить в зажарку</span></td><td class="qty">1,8 кг</td></tr>
+        <tr><td>Вермишель мелкая</td><td class="qty">1,8 кг</td></tr>
+        <tr><td>Зелень<span class="note">укроп, петрушка</span></td><td class="qty">260 г</td></tr>
+        <tr><td>Растительное масло<span class="note">для обжарки лука</span></td><td class="qty">0,25 л</td></tr>
+        <tr><td>Соль</td><td class="qty">~620 г (по вкусу)</td></tr>
+        <tr><td>Чёрный перец</td><td class="qty">~35 г</td></tr>
+        <tr><td>Лавровый лист</td><td class="qty">~13 г</td></tr>
+      </tbody>
+    </table>
+
+    <div class="block-title">Технология</div>
+    <ol class="steps">
+      <li>Кур залить холодной водой, довести до кипения, снять пену. Варить бульон на слабом огне 1,5–2 часа, посолить.</li>
+      <li>Вынуть кур, отделить мясо от костей, нарезать и вернуть в бульон.</li>
+      <li>Заложить картофель кубиками, варить ~15 минут.</li>
+      <li>Лук нарезать и обжарить на масле до золотистого — это зажарка. Добавить в суп.</li>
+      <li>Всыпать мелкую вермишель, варить 3–5 минут до готовности. Добавить перец и лавровый лист.</li>
+      <li>В конце всыпать зелень, снять с огня и дать настояться 10 минут.</li>
+    </ol>
+
+    <div class="callout">
+      <strong>Новичку:</strong> «зажарка» — обжаренный лук, который кладут в суп в конце для вкуса и аромата. Вермишель добавлять последней и не переваривать — она быстро разбухает, если засыпать раньше времени, суп загустеет в кашу.
+    </div>
+  </section>
+
+  <!-- ==================== ХОТ-ДОГИ ==================== -->
+  <section class="dish" id="hotdog">
+    <h2>Хот-доги</h2>
+    <span class="meal-tag">Завтрак</span>
+
+    <div class="block-title">Состав на 220 порций</div>
+    <table class="ingredients">
+      <thead>
+        <tr>
+          <th>Продукт</th>
+          <th class="qty">Количество</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Булочка для хот-дога</td><td class="qty">220 шт.</td></tr>
+        <tr><td>Колбаска баварская</td><td class="qty">220 шт.</td></tr>
+        <tr><td>Кетчуп</td><td class="qty">1,8 л</td></tr>
+        <tr><td>Горчица</td><td class="qty">1,8 л</td></tr>
+        <tr><td>Огурцы бургерные<span class="note">маринованные, нарезка</span></td><td class="qty">2,6 кг</td></tr>
+        <tr><td>Бумажный уголок<span class="note">упаковка для подачи</span></td><td class="qty">220 шт.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Подача:</strong> собранный хот-дог кладётся в бумажный уголок — так удобно есть на ходу и не пачкаются руки.
+    </div>
+
+    <div class="block-title">Булочки: разогрев на полевой кухне</div>
+    <div class="tips-intro">
+      <p>Полевая кухня — идеальные условия для приготовления хот-догов на пару. Большой объём и постоянное тепло позволят разогреть сразу много булочек, и они получатся мягкими, как в стрит-фуде.</p>
+      <p>Используйте один из способов в зависимости от загрузки кухни:</p>
+    </div>
+    <div class="tips">
+
+      <div class="tip">
+        <h4><span class="ic">🔥</span> В духовке или жарочном шкафу <span class="muted">— для хрустящей корочки</span></h4>
+        <ul>
+          <li>Слегка сбрызните замороженные булочки водой из пульверизатора.</li>
+          <li>Плотно выложите их на противень.</li>
+          <li>Накройте противень слоем фольги, чтобы удержать влагу.</li>
+          <li>Отправьте в прогретый жарочный шкаф на <strong>5–7 минут</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="tip best">
+        <h4><span class="ic">♨️</span> На пару над варочным котлом <span class="badge">Макс. мягкость</span></h4>
+        <ul>
+          <li>Разложите булочки в один слой на решётчатые вставки — вкладыши для варки на пару.</li>
+          <li>Установите решётки в котёл, где кипит вода — булочки не должны касаться воды.</li>
+          <li>Плотно закройте крышку котла на <strong>1–2 минуты</strong>.</li>
+          <li>Вынимайте булочки щипцами, они сразу готовы к сборке.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== ЧАЙ ==================== -->
+  <section class="dish" id="chai">
+    <h2>Чай с лимоном и сахаром</h2>
+    <span class="meal-tag">Завтрак</span>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="label">Порций</div>
+        <div class="value">220</div>
+      </div>
+      <div class="fact">
+        <div class="label">Порция</div>
+        <div class="value">200 <small>мл</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Всего чая</div>
+        <div class="value">~44 <small>л</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Крепость</div>
+        <div class="value">Некрепкий</div>
+      </div>
+    </div>
+
+    <div class="block-title">Ингредиенты на 220 порций</div>
+    <table class="ingredients">
+      <thead>
+        <tr>
+          <th>Продукт</th>
+          <th class="qty">Количество</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Вода</td><td class="qty">~44 л</td></tr>
+        <tr><td>Чай рассыпной<span class="note">чёрный, некрепкая заварка</span></td><td class="qty">~130 г</td></tr>
+        <tr><td>Сахар</td><td class="qty">~2,2 кг (по вкусу)</td></tr>
+        <tr><td>Лимоны<span class="note">сок и дольки</span></td><td class="qty">~0,9 кг (≈7 шт)</td></tr>
+        <tr><td>Лимонная кислота</td><td class="qty">~18 г (по вкусу)</td></tr>
+        <tr><td>Марля<span class="note">процедить заварку</span></td><td class="qty">1–2 м</td></tr>
+      </tbody>
+    </table>
+
+    <div class="block-title">Технология</div>
+    <ol class="steps">
+      <li>Вскипятить в котле ~44 л воды.</li>
+      <li>Заварку насыпать в марлевый мешочек, опустить в кипяток. Заварить <strong>некрепко</strong> — чай будут пить и дети — дать настояться 10–15 минут и вынуть марлю с заваркой.</li>
+      <li>Добавить сахар, размешать до полного растворения.</li>
+      <li>Влить сок лимонов и добавить лимонную кислоту по вкусу, положить дольки лимона.</li>
+      <li>Подавать тёплым.</li>
+    </ol>
+
+    <div class="callout">
+      <strong>Новичку:</strong> заварку удобно держать в марлевом мешочке — так её легко вынуть, и чай остаётся прозрачным без чаинок. Крепость проверяй по цвету: некрепкий чай светлый, как янтарь, а не тёмно-коричневый.
+    </div>
+  </section>
+
+  <!-- ==================== ГРИБНОЙ СУП ==================== -->
+  <section class="dish" id="grib-sup">
+    <h2>Грибной суп</h2>
+    <span class="meal-tag">Обед</span>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="label">Порций</div>
+        <div class="value">220</div>
+      </div>
+      <div class="fact">
+        <div class="label">Порция</div>
+        <div class="value">300 <small>г</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Всего супа</div>
+        <div class="value">~66 <small>л</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Грибы</div>
+        <div class="value">Вешенки</div>
+      </div>
+    </div>
+
+    <div class="block-title">Ингредиенты на 220 порций</div>
+    <table class="ingredients">
+      <thead>
+        <tr>
+          <th>Продукт</th>
+          <th class="qty">Количество</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Вода</td><td class="qty">~62 л</td></tr>
+        <tr><td>Вешенки</td><td class="qty">4,4 кг</td></tr>
+        <tr><td>Перловка<span class="note">сухая, отварить заранее</span></td><td class="qty">1,3 кг</td></tr>
+        <tr><td>Картофель<span class="note">кубиками</span></td><td class="qty">5,3 кг</td></tr>
+        <tr><td>Морковь<span class="note">в зажарку</span></td><td class="qty">1,3 кг</td></tr>
+        <tr><td>Репчатый лук<span class="note">в зажарку</span></td><td class="qty">1,8 кг</td></tr>
+        <tr><td>Растительное масло<span class="note">для зажарки</span></td><td class="qty">0,35 л</td></tr>
+        <tr><td>Зелень<span class="note">укроп, петрушка</span></td><td class="qty">260 г</td></tr>
+        <tr><td>Соль</td><td class="qty">~620 г (по вкусу)</td></tr>
+        <tr><td>Чёрный перец</td><td class="qty">~35 г</td></tr>
+        <tr><td>Лавровый лист</td><td class="qty">~13 г</td></tr>
+      </tbody>
+    </table>
+
+    <div class="block-title">Технология</div>
+    <ol class="steps">
+      <li>Перловку заранее отварить отдельно до полуготовности — она варится долго и делает суп мутным, если бросать сырой.</li>
+      <li>Вскипятить в котле ~62 л воды, посолить.</li>
+      <li>Вешенки нарезать, заложить в кипяток, варить 15–20 минут.</li>
+      <li>Добавить картофель кубиками, варить ~15 минут.</li>
+      <li>Морковь и лук нарезать, обжарить на масле до золотистого — зажарка. Добавить в суп.</li>
+      <li>Всыпать отваренную перловку, перец и лавровый лист, прогреть 5 минут.</li>
+      <li>В конце добавить зелень, снять с огня и дать настояться 10 минут.</li>
+    </ol>
+
+    <div class="callout">
+      <strong>Новичку:</strong> перловка — главная засада: сырая она варится почти час и мутит бульон. Отвари её заранее в отдельной кастрюле и добавляй в готовый суп. Вешенки, в отличие от лесных грибов, отваривать отдельно не нужно — они безопасны и кладутся сразу в суп.
+    </div>
+  </section>
+
+  <!-- ==================== КАРТОФЕЛЬНОЕ ПЮРЕ ==================== -->
+  <section class="dish" id="pyure">
+    <h2>Картофельное пюре с хрустящим луком</h2>
+    <span class="meal-tag">Обед</span>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="label">Порций</div>
+        <div class="value">220</div>
+      </div>
+      <div class="fact">
+        <div class="label">Порция</div>
+        <div class="value">200 <small>г</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Всего пюре</div>
+        <div class="value">~44 <small>кг</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Подача</div>
+        <div class="value">Гарнир к котлете</div>
+      </div>
+    </div>
+
+    <div class="block-title">Ингредиенты на 220 порций</div>
+    <table class="ingredients">
+      <thead>
+        <tr>
+          <th>Продукт</th>
+          <th class="qty">Количество</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Картофель<span class="note">очищенный; к закупке ~48–52 кг неочищенного</span></td><td class="qty">~40 кг</td></tr>
+        <tr><td>Молоко<span class="note">влить горячим</span></td><td class="qty">~7 л</td></tr>
+        <tr><td>Сливочное масло</td><td class="qty">~1,8 кг</td></tr>
+        <tr><td>Соль</td><td class="qty">~350 г (по вкусу)</td></tr>
+        <tr><td>Хрустящий жареный лук<span class="note">готовый, топпинг</span></td><td class="qty">~1,3 кг</td></tr>
+        <tr><td>Укроп<span class="note">рубленый, для подачи</span></td><td class="qty">~175 г</td></tr>
+      </tbody>
+    </table>
+
+    <div class="block-title">Технология</div>
+    <ol class="steps">
+      <li>Картофель очистить, нарезать, отварить в подсоленной воде до мягкости — 20–25 минут.</li>
+      <li>Воду слить, картофель растолочь. Влить <strong>горячее</strong> молоко, добавить сливочное масло, посолить и взбить до пышности.</li>
+      <li>Пюре выложить в гастроёмкости, сверху посыпать готовым хрустящим жареным луком и рубленым укропом.</li>
+      <li>Подавать с куриной котлетой — см. отдельную карту.</li>
+    </ol>
+
+    <div class="callout">
+      <strong>Новичку:</strong> молоко вливай только горячим — от холодного пюре сереет и становится клейким. Держи готовое пюре тёплым на водяной бане или в мармите, а хрустящий лук добавляй сверху перед самой подачей, чтобы он не размяк.
+    </div>
+  </section>
+
+  <!-- ==================== КУРИНЫЕ КОТЛЕТЫ ==================== -->
+  <section class="dish" id="kotlety">
+    <h2>Куриные котлеты</h2>
+    <span class="meal-tag">Обед</span>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="label">Количество</div>
+        <div class="value">220 <small>шт.</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Готовая котлета</div>
+        <div class="value">150 <small>г</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Сырая котлета</div>
+        <div class="value">176–178 <small>г</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Ужарка</div>
+        <div class="value">15 <small>%</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Всего сырого фарша</div>
+        <div class="value">38,8 <small>кг</small></div>
+      </div>
+    </div>
+
+    <div class="block-title">Ингредиенты на 220 шт.</div>
+    <table class="ingredients">
+      <thead>
+        <tr>
+          <th>Продукт</th>
+          <th class="qty">Количество</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Куриное мясо<span class="note">мякоть</span></td><td class="qty">22,57 кг</td></tr>
+        <tr><td>Белый хлеб<span class="note">без корок, чёрствый мякиш</span></td><td class="qty">4,51 кг</td></tr>
+        <tr><td>Молоко или вода<span class="note">для замачивания хлеба</span></td><td class="qty">5,64 л</td></tr>
+        <tr><td>Репчатый лук</td><td class="qty">4,51 кг</td></tr>
+        <tr><td>Куриные яйца</td><td class="qty">23 шт.</td></tr>
+        <tr><td>Соль</td><td class="qty">339 г</td></tr>
+        <tr><td>Чёрный молотый перец</td><td class="qty">45 г</td></tr>
+        <tr><td>Панировочные сухари</td><td class="qty">3,1–3,5 кг</td></tr>
+        <tr><td>Растительное масло<span class="note">для жарки</span></td><td class="qty">2,2–2,6 л</td></tr>
+      </tbody>
+    </table>
+
+    <div class="block-title">Технология</div>
+    <ol class="steps">
+      <li>Замочить чёрствый мякиш хлеба в молоке на 15–20 минут, слегка отжать.</li>
+      <li>Пропустить через мясорубку куриное мясо, лук и замоченный хлеб.</li>
+      <li>Добавить яйца, соль, перец. Тщательно вымешать фарш и отбить его.</li>
+      <li>Сформировать котлеты весом по 176–178 грамм, запанировать в сухарях.</li>
+      <li>Обжарить и довести до готовности — в духовке или конвектомате.</li>
+    </ol>
+
+    <div class="callout">
+      <strong>Новичку:</strong> «отбить фарш» — набирать массу в руку и с силой бросать обратно в миску 10–15 раз. Так фарш становится плотнее и котлеты не разваливаются.
+    </div>
+  </section>
+
+  <!-- ==================== КАПУСТА ПРОВАНСАЛЬ ==================== -->
+  <section class="dish" id="kapusta">
+    <h2>Капуста провансаль</h2>
+    <span class="meal-tag">Обед</span>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="label">Готовим</div>
+        <div class="value">18 <small>кг капусты</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">На порцию</div>
+        <div class="value">~80 <small>г / чел.</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Маринование</div>
+        <div class="value">1,5 <small>суток</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Важно</div>
+        <div class="value">Готовить заранее</div>
+      </div>
+    </div>
+
+    <div class="block-title">Ингредиенты — базовый рецепт и пересчёт на 18 кг (×6)</div>
+    <table class="ingredients">
+      <thead>
+        <tr>
+          <th>Продукт</th>
+          <th class="qty">Базовый (3 кг)</th>
+          <th class="qty">На 18 кг</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Капуста<span class="note">покрошить как нравится; квадратиками 4×4</span></td><td class="qty">3 кг</td><td class="qty">18 кг</td></tr>
+        <tr><td>Морковь<span class="note">на крупной свекольной тёрке, можно чуть больше</span></td><td class="qty">0,5 кг</td><td class="qty">3 кг</td></tr>
+        <tr><td>Масло подсолнечное</td><td class="qty">0,2 л</td><td class="qty">1,2 л</td></tr>
+        <tr><td>Уксус 9%</td><td class="qty">0,2 л</td><td class="qty">1,2 л</td></tr>
+        <tr><td>Сахар</td><td class="qty">0,2 кг</td><td class="qty">1,2 кг</td></tr>
+        <tr><td>Соль</td><td class="qty">0,075 кг</td><td class="qty">0,45 кг</td></tr>
+        <tr><td>Чеснок<span class="note">порубить вручную мелко</span></td><td class="qty">0,1 кг</td><td class="qty">0,6 кг</td></tr>
+        <tr><td>Перец горошком</td><td class="qty">15 шт.</td><td class="qty">~90 шт.</td></tr>
+        <tr><td>Лавровый лист</td><td class="qty">12 шт.</td><td class="qty">~72 шт.</td></tr>
+        <tr><td>Гвоздика<span class="note">по желанию, если есть</span></td><td class="qty">12 шт.</td><td class="qty">~72 шт.</td></tr>
+        <tr><td>Куркума<span class="note">для цвета</span></td><td class="qty">0,5 ч. л.</td><td class="qty">~3 ч. л.</td></tr>
+        <tr><td>Вода<span class="note">для маринада</span></td><td class="qty">1,5 л</td><td class="qty">9 л</td></tr>
+      </tbody>
+    </table>
+
+    <div class="block-title">Технология</div>
+    <ol class="steps">
+      <li>Капусту покрошить как нравится — можно снежинками, можно квадратиками 4×4. Морковь натереть на крупной тёрке. Чеснок порубить вручную мелко.</li>
+      <li>Маринад: 9 л воды закипятить, остудить до 40–50°, добавить сахар, соль, уксус, масло, куркуму и растворить. Попробовать маринад на вкус.</li>
+      <li>Укладывать слоями: капуста — морковь — чеснок — лаврушка — перчик — гвоздика, и так до наполнения. На 18 кг нужна большая ёмкость или несколько тар по 5–6 л.</li>
+      <li>Залить маринадом, чтобы капуста была вся покрыта, слегка прижать.</li>
+      <li>Держать 1,5 суток — готово. Затем убрать в холодильник, так хранится лучше, до 10 суток.</li>
+    </ol>
+
+    <div class="callout">
+      <strong>Новичку и по логистике:</strong> капуста маринуется 1,5 суток, поэтому её нужно поставить заранее — за ~2 дня до дня Минска. Ускорение: если залить маринадом погорячее, ~70°, готовность наступает за сутки или чуть меньше — пробуйте на вкус.
+    </div>
+  </section>
+
+  <!-- ==================== БЕЗАЛКОГОЛЬНЫЙ МОХИТО ==================== -->
+  <section class="dish" id="mojito">
+    <h2>Безалкогольный мохито</h2>
+    <span class="meal-tag">Обед</span>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="label">Порций</div>
+        <div class="value">220</div>
+      </div>
+      <div class="fact">
+        <div class="label">Порция</div>
+        <div class="value">200 <small>мл</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Всего напитка</div>
+        <div class="value">~44 <small>л</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Основа</div>
+        <div class="value">Лимонад · лайм</div>
+      </div>
+    </div>
+
+    <div class="block-title">Ингредиенты на 220 порций</div>
+    <table class="ingredients">
+      <thead>
+        <tr>
+          <th>Продукт</th>
+          <th class="qty">Количество</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Лимонадная основа<span class="note">~33 л; сладость и газ — отсюда</span></td><td class="qty">17 бутылок × 2 л</td></tr>
+        <tr><td>Лайм<span class="note">сок и дольки</span></td><td class="qty">2,6 кг</td></tr>
+        <tr><td>Мята свежая</td><td class="qty">440 г</td></tr>
+        <tr><td>Колотый лёд<span class="note">разрубить пополам</span></td><td class="qty">14 замороженных бутылок</td></tr>
+      </tbody>
+    </table>
+
+    <div class="block-title">Технология</div>
+    <ol class="steps">
+      <li>Мяту промыть. Лаймы вымыть: часть нарезать дольками, из остальных выжать сок.</li>
+      <li>Слегка помять мяту с соком лайма — не растирать в кашу, иначе мята даст горечь; нужен только аромат. Сахар не добавляем — сладость в лимонадной основе.</li>
+      <li>Влить лимонадную основу, аккуратно размешать. Добавить дольки лайма.</li>
+      <li>Разливать по стаканам с колотым льдом — лёд из разрубленных замороженных бутылок.</li>
+    </ol>
+
+    <div class="callout">
+      <strong>Новичку:</strong> лимонадную основу вливай в самом конце и мешай аккуратно, чтобы напиток не выдохся. Готовь порциями ближе к подаче — так мохито остаётся холодным и газированным.
+    </div>
+  </section>
+
+  <!-- ==================== ПАСТА БОЛОНЬЕЗЕ ==================== -->
+  <section class="dish" id="bolognese">
+    <h2>Паста болоньезе <span style="font-size:20px">🌶️</span></h2>
+    <span class="meal-tag">Ужин</span>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="label">Порций</div>
+        <div class="value">220</div>
+      </div>
+      <div class="fact">
+        <div class="label">Порция</div>
+        <div class="value">250 <small>г</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Всего блюда</div>
+        <div class="value">~55 <small>кг</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Особенность</div>
+        <div class="value">Острое</div>
+      </div>
+    </div>
+
+    <div class="block-title">Ингредиенты — соус болоньезе</div>
+    <table class="ingredients">
+      <thead>
+        <tr>
+          <th>Продукт</th>
+          <th class="qty">Количество</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Фарш<span class="note">курица + свинина</span></td><td class="qty">8,8 кг</td></tr>
+        <tr><td>Репчатый лук</td><td class="qty">2,6 кг</td></tr>
+        <tr><td>Чеснок</td><td class="qty">0,35 кг</td></tr>
+        <tr><td>Томатная паста</td><td class="qty">1,8 кг</td></tr>
+        <tr><td>Вода<span class="note">развести пасту и тушить</span></td><td class="qty">~7 л</td></tr>
+        <tr><td>Острый перец<span class="note">по вкусу; для детей часть соуса без него</span></td><td class="qty">~44 г</td></tr>
+        <tr><td>Петрушка<span class="note">рубленая, в конце</span></td><td class="qty">260 г</td></tr>
+        <tr><td>Базилик<span class="note">свежий; или ~4 ст. л. сухого</span></td><td class="qty">130 г</td></tr>
+        <tr><td>Растительное масло<span class="note">для обжарки</span></td><td class="qty">0,44 л</td></tr>
+        <tr><td>Соль</td><td class="qty">~310 г (по вкусу)</td></tr>
+        <tr><td>Чёрный перец</td><td class="qty">~26 г</td></tr>
+      </tbody>
+    </table>
+
+    <div class="block-title">Ингредиенты — спагетти</div>
+    <table class="ingredients">
+      <thead>
+        <tr>
+          <th>Продукт</th>
+          <th class="qty">Количество</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Спагетти сухие</td><td class="qty">13,2 кг</td></tr>
+        <tr><td>Соль<span class="note">для варки</span></td><td class="qty">по воде</td></tr>
+      </tbody>
+    </table>
+
+    <div class="block-title">Технология</div>
+    <ol class="steps">
+      <li>Лук и чеснок мелко нарезать, острый перец измельчить.</li>
+      <li>На масле обжарить лук до золотистого, добавить чеснок и острый перец.</li>
+      <li>Добавить фарш, обжарить, разбивая комки, до румяности.</li>
+      <li>Ввести томатную пасту, прогреть 2–3 минуты, влить воду. Посолить, поперчить и тушить на слабом огне 30–40 минут до густоты.</li>
+      <li>В конце добавить рубленые петрушку и базилик.</li>
+      <li>Спагетти отварить в подсоленной воде до аль денте по времени на упаковке, откинуть на дуршлаг.</li>
+      <li>Подавать спагетти с соусом болоньезе сверху или перемешав.</li>
+    </ol>
+
+    <div class="callout">
+      <strong>Новичку:</strong> острый перец кладётся по вкусу — часть соуса отложи <strong>без перца для детей</strong>. Соус должен тушиться, а не кипеть бурно, тогда он густой и мягкий по вкусу. Спагетти варить в самом конце и подавать сразу — остывшие слипаются.
+    </div>
+  </section>
+
+  <!-- ==================== КУКУРУЗА С ПАПРИКОЙ ==================== -->
+  <section class="dish" id="kukuruza">
+    <h2>Кукуруза с паприкой</h2>
+    <span class="meal-tag">Ужин</span>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="label">Порций</div>
+        <div class="value">220</div>
+      </div>
+      <div class="fact">
+        <div class="label">На человека</div>
+        <div class="value">1 <small>кусочек (¼ початка)</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Початков</div>
+        <div class="value">~55</div>
+      </div>
+      <div class="fact">
+        <div class="label">Кукуруза</div>
+        <div class="value">Молодая свежая</div>
+      </div>
+    </div>
+
+    <div class="block-title">Ингредиенты на 220 порций</div>
+    <table class="ingredients">
+      <thead>
+        <tr>
+          <th>Продукт</th>
+          <th class="qty">Количество</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Кукуруза молодая свежая<span class="note">каждый початок на 4 части = 220 кусочков</span></td><td class="qty">~55 початков</td></tr>
+        <tr><td>Сливочное масло</td><td class="qty">~1,75 кг</td></tr>
+        <tr><td>Паприка</td><td class="qty">~53 г (по вкусу)</td></tr>
+        <tr><td>Соль</td><td class="qty">~175 г (в конце)</td></tr>
+        <tr><td>Вода<span class="note">для варки</span></td><td class="qty">по котлу</td></tr>
+      </tbody>
+    </table>
+
+    <div class="block-title">Технология</div>
+    <ol class="steps">
+      <li>Початки очистить от листьев и рылец, промыть. Каждый разрезать на 4 части.</li>
+      <li>Отварить в кипящей воде до мягкости — молодая кукуруза варится 10–15 минут. Воду в начале не солить.</li>
+      <li>Растопить сливочное масло и вмешать паприку.</li>
+      <li>Горячие кусочки полить или обмакнуть в масло с паприкой, посолить.</li>
+      <li>Подавать тёплой.</li>
+    </ol>
+
+    <div class="callout">
+      <strong>Новичку:</strong> молодую кукурузу нельзя переваривать — от долгой варки зёрна становятся жёсткими. Воду не соли в начале: соль тоже делает зёрна твёрдыми, поэтому солим уже готовые кусочки.
+    </div>
+  </section>
+
+  <!-- ==================== МОРС ИЗ ДИКИХ ЯГОД ==================== -->
+  <section class="dish" id="mors">
+    <h2>Морс из диких ягод</h2>
+    <span class="meal-tag">Ужин</span>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="label">Порций</div>
+        <div class="value">220</div>
+      </div>
+      <div class="fact">
+        <div class="label">Порция</div>
+        <div class="value">150 <small>мл</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Всего напитка</div>
+        <div class="value">~33 <small>л</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Подача</div>
+        <div class="value">Тёплым</div>
+      </div>
+    </div>
+
+    <div class="block-title">Ингредиенты на 220 порций</div>
+    <table class="ingredients">
+      <thead>
+        <tr>
+          <th>Продукт</th>
+          <th class="qty">Количество</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Вода<span class="note">горячая, для смешивания</span></td><td class="qty">~31 л</td></tr>
+        <tr><td>Малиновый сироп<span class="note">1 бутылка на 12 л</span></td><td class="qty">~3 бутылки</td></tr>
+        <tr><td>Вишнёвый сироп</td><td class="qty">по вкусу</td></tr>
+        <tr><td>Лимонная кислота</td><td class="qty">по вкусу</td></tr>
+      </tbody>
+    </table>
+
+    <div class="block-title">Технология</div>
+    <ol class="steps">
+      <li>Вскипятить воду.</li>
+      <li>В горячей воде размешать малиновый и вишнёвый сиропы.</li>
+      <li>Добавить лимонную кислоту по вкусу, попробовать и отрегулировать сладость и кислинку.</li>
+      <li>Охладить до тёплого состояния и подавать.</li>
+    </ol>
+
+    <div class="callout">
+      <strong>Новичку:</strong> ориентир по малиновому сиропу — 1 бутылка на 12 л воды, вишнёвый добавляй для вкуса и цвета и пробуй по ходу. Лимонная кислота даёт морсу приятную кислинку — сыпь понемногу и пробуй, чтобы не перекислить.
+    </div>
+  </section>
+
+  <footer class="page">
+    Черновик тех-карт · все блюда меню расписаны · обновлено 21.07.2026
+  </footer>
+
+</div>
+
+<script>
+  // --- Сворачивание карточек блюд ---
+  document.querySelectorAll('section.dish').forEach(function (dish) {
+    var head = document.createElement('div');
+    head.className = 'dish-head';
+    var body = document.createElement('div');
+    body.className = 'dish-body';
+    Array.prototype.slice.call(dish.children).forEach(function (el) {
+      if (el.tagName === 'H2' || el.classList.contains('meal-tag')) {
+        head.appendChild(el);
+      } else {
+        body.appendChild(el);
+      }
+    });
+    var chev = document.createElement('span');
+    chev.className = 'dish-chev';
+    chev.setAttribute('aria-hidden', 'true');
+    head.appendChild(chev);
+    dish.appendChild(head);
+    dish.appendChild(body);
+    head.addEventListener('click', function () { dish.classList.toggle('open'); });
+  });
+
+  // Ссылки из оглавления — раскрыть нужное блюдо
+  document.querySelectorAll('.toc a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var t = document.querySelector(a.getAttribute('href'));
+      if (t && t.classList.contains('dish')) t.classList.add('open');
+    });
+  });
+
+  // --- Отметки о покупке в localStorage ---
+  var KEY = 'druksiai-buylist';
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+  document.querySelectorAll('.checklist input[type=checkbox]').forEach(function (box) {
+    var k = box.getAttribute('data-k');
+    if (saved[k]) box.checked = true;
+    box.addEventListener('change', function () {
+      saved[k] = box.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+    });
+  });
+  var reset = document.getElementById('bl-reset');
+  if (reset) reset.addEventListener('click', function () {
+    document.querySelectorAll('.checklist input[type=checkbox]').forEach(function (b) { b.checked = false; });
+    saved = {};
+    try { localStorage.removeItem(KEY); } catch (e) {}
+  });
+</script>
+</body>
+</html>
