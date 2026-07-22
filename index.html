@@ -434,6 +434,20 @@
     cursor: pointer;
   }
   .buylist .bl-actions button:hover { background: var(--accent-soft); }
+  .buylist .bl-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .bl-status { font-size: 12.5px; color: var(--muted); }
+  .bl-status.ok { color: var(--accent); }
+  .bl-status.warn { color: #b8721a; }
+  ul.checklist .who {
+    font-size: 11.5px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+    border-radius: 999px;
+    padding: 1px 8px;
+    white-space: nowrap;
+    align-self: center;
+  }
   .buylist h3 {
     font-size: 13px;
     text-transform: uppercase;
@@ -572,8 +586,12 @@
   <!-- ==================== СПИСОК ЗАКУПОК ==================== -->
   <section class="buylist" id="buylist">
     <h2>Список продуктов к закупке</h2>
-    <p class="bl-sub">Сводно по всем блюдам на 220 человек. Отметки о покупке сохраняются в этом браузере.</p>
-    <div class="bl-actions"><button type="button" id="bl-reset">Сбросить отметки</button></div>
+    <p class="bl-sub">Сводно по всем блюдам на 220 человек. Отметки о покупке общие — их видят все, кто открывает страницу.</p>
+    <div class="bl-actions">
+      <button type="button" id="bl-who">Подписать отметки</button>
+      <button type="button" id="bl-reset">Сбросить отметки</button>
+      <span id="bl-status" class="bl-status">…</span>
+    </div>
 
     <h3>Мясо и колбасные</h3>
     <ul class="checklist">
@@ -1347,24 +1365,138 @@
     });
   });
 
-  // --- Отметки о покупке в localStorage ---
+  // --- Общие отметки о покупках ---
+  // URL веб-приложения Apps Script. Пусто — работаем только на этом устройстве.
+  var SYNC_URL = 'https://script.google.com/macros/s/AKfycbwkNU7qFUT6HkG--n6Wd-1JyEhusBjjLBJb1NKkkLBD2UTurJtRN_safXQidFIMx5Qu/exec';
+
   var KEY = 'druksiai-buylist';
-  var saved = {};
-  try { saved = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+  var WHOKEY = 'druksiai-who';
+  var state = {};    // ключ -> {checked, who}
+  var pending = {};  // ключ -> true, пока изменение не доехало на сервер
+  var boxes = {};
+
   document.querySelectorAll('.checklist input[type=checkbox]').forEach(function (box) {
-    var k = box.getAttribute('data-k');
-    if (saved[k]) box.checked = true;
-    box.addEventListener('change', function () {
-      saved[k] = box.checked;
-      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+    boxes[box.getAttribute('data-k')] = box;
+  });
+
+  function who() {
+    try { return localStorage.getItem(WHOKEY) || ''; } catch (e) { return ''; }
+  }
+  function saveLocal() {
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+  }
+  function status(text, cls) {
+    var el = document.getElementById('bl-status');
+    if (el) { el.textContent = text; el.className = 'bl-status ' + (cls || ''); }
+  }
+
+  function render() {
+    Object.keys(boxes).forEach(function (k) {
+      var st = state[k] || {};
+      var box = boxes[k];
+      box.checked = !!st.checked;
+      var label = box.parentNode;
+      var tag = label.querySelector('.who');
+      if (st.checked && st.who) {
+        if (!tag) {
+          tag = document.createElement('span');
+          tag.className = 'who';
+          label.appendChild(tag);
+        }
+        tag.textContent = st.who;
+      } else if (tag) {
+        tag.parentNode.removeChild(tag);
+      }
+    });
+  }
+
+  // Отправляем изменение. Ответ Apps Script на POST приходит через редирект и
+  // читаемым JSON-ом не является, поэтому успех не выясняем по телу ответа —
+  // его подтвердит ближайший pull(), сверив состояние на сервере.
+  function push(k) {
+    if (!SYNC_URL) { saveLocal(); return; }
+    pending[k] = true;
+    fetch(SYNC_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({
+        key: k,
+        checked: !!(state[k] && state[k].checked),
+        who: who()
+      })
+    })
+      .then(function () { status('отправлено, подтверждаем…'); })
+      .catch(function () { status('нет связи — досохраним позже', 'warn'); });
+  }
+
+  function pull() {
+    if (!SYNC_URL) { status('только на этом устройстве', 'warn'); return; }
+    fetch(SYNC_URL)
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d || !d.ok) throw new Error('bad');
+
+        Object.keys(d.items).forEach(function (k) {
+          var srv = d.items[k];
+          if (!pending[k]) {
+            state[k] = srv;                       // чужие отметки принимаем как есть
+            return;
+          }
+          var mine = state[k] || { checked: false };
+          if (!!srv.checked === !!mine.checked) { // сервер догнал нас — подтверждено
+            delete pending[k];
+            state[k] = srv;
+          }
+        });
+
+        saveLocal();
+        render();
+
+        var stuck = Object.keys(pending);
+        if (stuck.length) {
+          status('досылаем ' + stuck.length + '…', 'warn');
+          stuck.forEach(push);
+        } else {
+          var t = new Date();
+          status('обновлено ' + ('0' + t.getHours()).slice(-2) + ':' + ('0' + t.getMinutes()).slice(-2), 'ok');
+        }
+      })
+      .catch(function () { status('нет связи — отметки сохранены локально', 'warn'); });
+  }
+
+  Object.keys(boxes).forEach(function (k) {
+    boxes[k].addEventListener('change', function () {
+      var on = boxes[k].checked;
+      state[k] = { checked: on, who: on ? who() : '' };
+      saveLocal();
+      render();
+      push(k);
     });
   });
+
+  var whoBtn = document.getElementById('bl-who');
+  if (whoBtn) whoBtn.addEventListener('click', function () {
+    var v = prompt('Как подписывать твои отметки?', who());
+    if (v === null) return;
+    try { localStorage.setItem(WHOKEY, v.trim()); } catch (e) {}
+    status(v.trim() ? 'подпись: ' + v.trim() : 'подпись не задана');
+  });
+
   var reset = document.getElementById('bl-reset');
   if (reset) reset.addEventListener('click', function () {
-    document.querySelectorAll('.checklist input[type=checkbox]').forEach(function (b) { b.checked = false; });
-    saved = {};
-    try { localStorage.removeItem(KEY); } catch (e) {}
+    if (!confirm('Снять все отметки? Это увидят все, кто открывает страницу.')) return;
+    Object.keys(boxes).forEach(function (k) {
+      state[k] = { checked: false, who: '' };
+      push(k);
+    });
+    saveLocal();
+    render();
   });
+
+  try { state = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { state = {}; }
+  render();
+  pull();
+  setInterval(pull, 15000);
 </script>
 </body>
 </html>
