@@ -486,6 +486,29 @@
   .buylist .bl-total b { font-size: 19px; }
   .buylist .bl-note { margin-top: 10px; font-size: 12.5px; color: var(--muted); }
 
+  /* ---- Отдельный день вне основного меню ---- */
+  .day-break {
+    margin: 54px 0 26px;
+    padding-top: 30px;
+    border-top: 3px double var(--line);
+  }
+  .day-break .db-kicker {
+    font-size: 12px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0 6px;
+  }
+  .day-break h2 { font-size: 26px; margin: 0 0 8px; }
+  .day-break p.db-sub { margin: 0; color: var(--muted); font-size: 14.5px; }
+  .db-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
+    margin: 18px 0 0;
+  }
+
   @media print {
     body { background: #fff; }
     .dish, .toc, .buylist { box-shadow: none; break-inside: avoid; }
@@ -589,8 +612,8 @@
     <p class="bl-sub">Сводно по всем блюдам на 220 человек. Отметки о покупке общие — их видят все, кто открывает страницу.</p>
     <div class="bl-actions">
       <button type="button" id="bl-who">Подписать отметки</button>
-      <button type="button" id="bl-reset">Сбросить отметки</button>
-      <span id="bl-status" class="bl-status">…</span>
+      <button type="button" data-reset="#buylist">Сбросить отметки</button>
+      <span class="bl-status">…</span>
     </div>
 
     <h3>Мясо и колбасные</h3>
@@ -1328,8 +1351,245 @@
     </div>
   </section>
 
+  <!-- ==================== ОТДЕЛЬНЫЙ ДЕНЬ: УЖИН 1 АВГУСТА ==================== -->
+  <div class="day-break">
+    <p class="db-kicker">Вне основного меню</p>
+    <h2>Ужин 1 августа</h2>
+    <p class="db-sub">Готовим только на 4 команды: Великий Новгород, Минск, Атом, Каунас. Это отдельный день, к дню «Мисс» отношения не имеет — раскладка и закупки считаются самостоятельно.</p>
+
+    <div class="db-facts">
+      <div class="fact">
+        <div class="label">Команд</div>
+        <div class="value">4</div>
+      </div>
+      <div class="fact">
+        <div class="label">Человек</div>
+        <div class="value">97</div>
+      </div>
+      <div class="fact">
+        <div class="label">Горячее</div>
+        <div class="value">350 <small>г / чел.</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Салат</div>
+        <div class="value">120 <small>г / чел.</small></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="teams" id="teams-0108">
+    <h2>Команды на 1 августа</h2>
+    <p class="t-sub">Кормим четыре команды из семи — остальные в этот день не наши.</p>
+    <table class="teams-tbl">
+      <thead>
+        <tr><th>Команда</th><th class="num">Человек</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Великий Новгород</td><td class="num">28</td></tr>
+        <tr class="us"><td>Минск <span class="tag">наша</span></td><td class="num">38</td></tr>
+        <tr><td>Атом</td><td class="num">22</td></tr>
+        <tr><td>Каунас</td><td class="num">9</td></tr>
+        <tr class="total"><td>Всего</td><td class="num">97</td></tr>
+      </tbody>
+    </table>
+    <p class="t-note">97 человек. Горячее 350 г → ~34 кг рагу, салат 120 г → ~11,7 кг. Запас заложен в раскладку.</p>
+  </section>
+
+  <!-- ---- Мясное рагу ---- -->
+  <section class="dish" id="ragu">
+    <h2>Мясное рагу <span style="font-size:20px">🐷</span></h2>
+    <span class="meal-tag">Ужин 1 августа</span>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="label">Порций</div>
+        <div class="value">97</div>
+      </div>
+      <div class="fact">
+        <div class="label">Порция</div>
+        <div class="value">350 <small>г</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Выход</div>
+        <div class="value">~34 <small>кг</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Мясо</div>
+        <div class="value">Свинина</div>
+      </div>
+    </div>
+
+    <div class="block-title">Ингредиенты на 97 порций</div>
+    <table class="ingredients">
+      <thead>
+        <tr>
+          <th>Продукт</th>
+          <th class="qty">Количество</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Свинина<span class="note">мякоть, кубиками ~3 см</span></td><td class="qty">11 кг</td></tr>
+        <tr><td>Картофель<span class="note">крупными кубиками</span></td><td class="qty">14 кг</td></tr>
+        <tr><td>Морковь</td><td class="qty">4 кг</td></tr>
+        <tr><td>Репчатый лук</td><td class="qty">4 кг</td></tr>
+        <tr><td>Помидоры<span class="note">свежие; можно часть томатной пастой</span></td><td class="qty">5 кг</td></tr>
+        <tr><td>Чеснок<span class="note">в конце тушения</span></td><td class="qty">0,5 кг</td></tr>
+        <tr><td>Растительное масло<span class="note">для обжарки</span></td><td class="qty">0,8 л</td></tr>
+        <tr><td>Вода<span class="note">для тушения</span></td><td class="qty">~4 л</td></tr>
+        <tr><td>Соль</td><td class="qty">~300 г (по вкусу)</td></tr>
+        <tr><td>Чёрный перец</td><td class="qty">~30 г</td></tr>
+        <tr><td>Паприка</td><td class="qty">~50 г</td></tr>
+        <tr><td>Лавровый лист</td><td class="qty">~20 г</td></tr>
+      </tbody>
+    </table>
+
+    <div class="block-title">Технология</div>
+    <ol class="steps">
+      <li>Свинину нарезать кубиками ~3 см. Обжарить на масле сильным огнём до румяной корочки — мясо должно схватиться, а не потушиться в своём соку.</li>
+      <li>Добавить лук и морковь, обжарить до мягкости.</li>
+      <li>Влить воду так, чтобы мясо было почти покрыто, и тушить под крышкой 40–50 минут до мягкости мяса.</li>
+      <li>Заложить картофель, посолить, добавить перец, паприку и лавровый лист. Тушить ещё ~20 минут.</li>
+      <li>Добавить нарезанные помидоры, тушить 10 минут до загустения.</li>
+      <li>В самом конце вмешать рубленый чеснок, снять с огня и дать настояться 10 минут под крышкой.</li>
+    </ol>
+
+    <div class="callout">
+      <strong>Новичку:</strong> картофель кладём только после того, как мясо стало мягким — иначе он разварится в кашу, пока доходит свинина. Чеснок всегда в конце: от долгого тушения он теряет аромат.
+    </div>
+  </section>
+
+  <!-- ---- Салат светофор ---- -->
+  <section class="dish" id="salat-svetofor">
+    <h2>Салат «Светофор»</h2>
+    <span class="meal-tag">Ужин 1 августа</span>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="label">Порций</div>
+        <div class="value">97</div>
+      </div>
+      <div class="fact">
+        <div class="label">Порция</div>
+        <div class="value">120 <small>г</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Выход</div>
+        <div class="value">~11,7 <small>кг</small></div>
+      </div>
+      <div class="fact">
+        <div class="label">Заправка</div>
+        <div class="value">Масло · уксус</div>
+      </div>
+    </div>
+
+    <div class="block-title">Ингредиенты на 97 порций</div>
+    <table class="ingredients">
+      <thead>
+        <tr>
+          <th>Продукт</th>
+          <th class="qty">Количество</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Капуста<span class="note">тонко нашинковать</span></td><td class="qty">3,5 кг</td></tr>
+        <tr><td>Огурцы свежие</td><td class="qty">2,5 кг</td></tr>
+        <tr><td>Помидоры</td><td class="qty">2,5 кг</td></tr>
+        <tr><td>Перец болгарский<span class="note">красный и жёлтый — для цвета</span></td><td class="qty">2 кг</td></tr>
+        <tr><td>Кукуруза консервированная</td><td class="qty">5 банок × 400 г</td></tr>
+        <tr><td>Растительное масло</td><td class="qty">~0,4 л</td></tr>
+        <tr><td>Уксус 9%</td><td class="qty">~0,15 л</td></tr>
+        <tr><td>Соль</td><td class="qty">~100 г (по вкусу)</td></tr>
+        <tr><td>Сахар</td><td class="qty">~100 г (по вкусу)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="block-title">Технология</div>
+    <ol class="steps">
+      <li>Капусту тонко нашинковать, слегка перетереть с солью, чтобы стала мягче.</li>
+      <li>Огурцы и помидоры нарезать кубиком, перец — соломкой. С кукурузы слить жидкость.</li>
+      <li>Смешать овощи в большой ёмкости.</li>
+      <li>Заправить маслом и уксусом, добавить соль и сахар, аккуратно перемешать и дать постоять 15 минут.</li>
+    </ol>
+
+    <div class="callout">
+      <strong>Новичку:</strong> «Светофор» — про цвет, поэтому бери красный и жёлтый перец, а помидоры режь покрупнее, чтобы не потерялись. Заправляй <strong>перед самой подачей</strong>: посоленные помидоры и огурцы быстро пускают сок, и салат превращается в суп.
+    </div>
+  </section>
+
+  <!-- ---- Хлеб к столу ---- -->
+  <section class="dish" id="hleb-0108">
+    <h2>Хлеб и батон к столу</h2>
+    <span class="meal-tag">Ужин 1 августа</span>
+
+    <div class="block-title">На 4 команды</div>
+    <table class="ingredients">
+      <thead>
+        <tr>
+          <th>Продукт</th>
+          <th class="qty">Количество</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Хлеб<span class="note">по 1 буханке на команду</span></td><td class="qty">4 буханки</td></tr>
+        <tr><td>Батон<span class="note">по 1 на команду</span></td><td class="qty">4 батона</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Обрати внимание:</strong> здесь без удвоения — большая команда Горизонт в этот день не наша, поэтому считаем ровно по 1 на команду.
+    </div>
+  </section>
+
+  <!-- ---- Закупка на 1 августа ---- -->
+  <section class="buylist" id="buylist-0108">
+    <h2>Закупка на ужин 1 августа</h2>
+    <p class="bl-sub">Отдельно от закупки дня «Мисс». Расчёт на 97 человек.</p>
+    <div class="bl-actions">
+      <button type="button" data-reset="#buylist-0108">Сбросить отметки</button>
+      <span class="bl-status">…</span>
+    </div>
+
+    <h3>Мясо</h3>
+    <ul class="checklist">
+      <li><label><input type="checkbox" data-k="a1-svinina"><span class="it">Свинина, мякоть <em>— рагу</em></span><span class="q">11 кг</span></label></li>
+    </ul>
+
+    <h3>Овощи</h3>
+    <ul class="checklist">
+      <li><label><input type="checkbox" data-k="a1-kartofel"><span class="it">Картофель <em>— рагу</em></span><span class="q">14 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="a1-morkov"><span class="it">Морковь <em>— рагу</em></span><span class="q">4 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="a1-luk"><span class="it">Лук репчатый <em>— рагу</em></span><span class="q">4 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="a1-chesnok"><span class="it">Чеснок <em>— рагу</em></span><span class="q">0,5 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="a1-pomidory"><span class="it">Помидоры <em>— рагу 5 кг + салат 2,5 кг</em></span><span class="q">7,5 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="a1-kapusta"><span class="it">Капуста <em>— салат</em></span><span class="q">3,5 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="a1-ogurcy"><span class="it">Огурцы свежие <em>— салат</em></span><span class="q">2,5 кг</span></label></li>
+      <li><label><input type="checkbox" data-k="a1-perec-bolg"><span class="it">Перец болгарский <em>— салат, красный и жёлтый</em></span><span class="q">2 кг</span></label></li>
+    </ul>
+
+    <h3>Бакалея и специи</h3>
+    <ul class="checklist">
+      <li><label><input type="checkbox" data-k="a1-kukuruza"><span class="it">Кукуруза консервированная <em>— салат</em></span><span class="q">5 банок × 400 г</span></label></li>
+      <li><label><input type="checkbox" data-k="a1-maslo"><span class="it">Масло растительное <em>— рагу 0,8 л + салат 0,4 л</em></span><span class="q">1,2 л</span></label></li>
+      <li><label><input type="checkbox" data-k="a1-uksus"><span class="it">Уксус 9% <em>— салат</em></span><span class="q">0,15 л</span></label></li>
+      <li><label><input type="checkbox" data-k="a1-sol"><span class="it">Соль <em>— рагу и салат</em></span><span class="q">~400 г</span></label></li>
+      <li><label><input type="checkbox" data-k="a1-sahar"><span class="it">Сахар <em>— салат</em></span><span class="q">~100 г</span></label></li>
+      <li><label><input type="checkbox" data-k="a1-perec-mol"><span class="it">Перец чёрный молотый <em>— рагу</em></span><span class="q">~30 г</span></label></li>
+      <li><label><input type="checkbox" data-k="a1-paprika"><span class="it">Паприка <em>— рагу</em></span><span class="q">~50 г</span></label></li>
+      <li><label><input type="checkbox" data-k="a1-lavr"><span class="it">Лавровый лист <em>— рагу</em></span><span class="q">~20 г</span></label></li>
+    </ul>
+
+    <h3>Хлеб</h3>
+    <ul class="checklist">
+      <li><label><input type="checkbox" data-k="a1-hleb"><span class="it">Хлеб <em>— по 1 на команду</em></span><span class="q">4 буханки</span></label></li>
+      <li><label><input type="checkbox" data-k="a1-baton"><span class="it">Батон <em>— по 1 на команду</em></span><span class="q">4 батона</span></label></li>
+    </ul>
+
+    <div class="bl-total"><span>Ориентировочная стоимость</span><b>≈ 350 BYN</b></div>
+    <p class="bl-note">Расчёт на 97 человек. Цены — грубая прикидка, требуют сверки в магазинах.</p>
+  </section>
+
   <footer class="page">
-    Черновик тех-карт · все блюда меню расписаны · обновлено 21.07.2026
+    Черновик тех-карт · день «Мисс» + ужин 1 августа · обновлено 23.07.2026
   </footer>
 
 </div>
@@ -1385,9 +1645,13 @@
   function saveLocal() {
     try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
   }
+  var unsupported = {}; // ключи, которых ещё нет в таблице — живут только локально
+
   function status(text, cls) {
-    var el = document.getElementById('bl-status');
-    if (el) { el.textContent = text; el.className = 'bl-status ' + (cls || ''); }
+    document.querySelectorAll('.bl-status').forEach(function (el) {
+      el.textContent = text;
+      el.className = 'bl-status ' + (cls || '');
+    });
   }
 
   function render() {
@@ -1414,7 +1678,7 @@
   // читаемым JSON-ом не является, поэтому успех не выясняем по телу ответа —
   // его подтвердит ближайший pull(), сверив состояние на сервере.
   function push(k) {
-    if (!SYNC_URL) { saveLocal(); return; }
+    if (!SYNC_URL || unsupported[k]) { saveLocal(); return; }
     pending[k] = true;
     fetch(SYNC_URL, {
       method: 'POST',
@@ -1447,6 +1711,12 @@
             delete pending[k];
             state[k] = srv;
           }
+        });
+
+        // ключ ждёт отправки, но сервер про него не знает — значит, строки в таблице
+        // ещё нет: не долбим её бесконечно, оставляем отметку локальной
+        Object.keys(pending).forEach(function (k) {
+          if (!(k in d.items)) { delete pending[k]; unsupported[k] = true; }
         });
 
         saveLocal();
@@ -1482,15 +1752,20 @@
     status(v.trim() ? 'подпись: ' + v.trim() : 'подпись не задана');
   });
 
-  var reset = document.getElementById('bl-reset');
-  if (reset) reset.addEventListener('click', function () {
-    if (!confirm('Снять все отметки? Это увидят все, кто открывает страницу.')) return;
-    Object.keys(boxes).forEach(function (k) {
-      state[k] = { checked: false, who: '' };
-      push(k);
+  // Сброс — только в пределах своего блока закупок
+  document.querySelectorAll('[data-reset]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var scope = document.querySelector(btn.getAttribute('data-reset'));
+      if (!scope) return;
+      if (!confirm('Снять все отметки в этом списке? Это увидят все, кто открывает страницу.')) return;
+      scope.querySelectorAll('.checklist input[type=checkbox]').forEach(function (b) {
+        var k = b.getAttribute('data-k');
+        state[k] = { checked: false, who: '' };
+        push(k);
+      });
+      saveLocal();
+      render();
     });
-    saveLocal();
-    render();
   });
 
   try { state = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { state = {}; }
