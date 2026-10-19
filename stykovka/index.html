@@ -514,6 +514,15 @@
     .dish:not(.open) .dish-body { display: block; }
   }
 
+  .toc-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:10px; }
+  .toc-btn { display:flex; align-items:center; gap:12px; padding:12px 14px; border-radius:14px; border:1px solid var(--line, #e3e1da);
+             background:var(--bg, #faf9f6); color:var(--ink); text-decoration:none; transition:background .15s, border-color .15s, transform .15s; }
+  .toc-btn:hover { background:var(--accent-soft); border-color:var(--accent); transform:translateY(-1px); }
+  .toc-btn .ti { font-size:22px; line-height:1; }
+  .toc-btn .tt { flex:1; display:flex; flex-direction:column; gap:2px; min-width:0; }
+  .toc-btn .tt b { font-weight:600; }
+  .toc-btn .tt small { color:var(--muted); font-size:13px; }
+  .toc-btn .go { color:var(--accent); font-weight:700; font-size:18px; }
   :root { --accent:#9a6a1c; --accent-soft:#f7efe0; --accent-line:#e3cfa6; --num-bg:#9a6a1c; }
   @media (prefers-color-scheme: dark) {
     :root { --accent:#d9a650; --accent-soft:#2a2215; --accent-line:#5a4524; --num-bg:#a9772a; }
@@ -559,7 +568,7 @@
     <div class="facts" style="margin-top:18px">
       <div class="fact"><div class="label">Гостей</div><div class="value">75</div></div>
       <div class="fact"><div class="label">Дней</div><div class="value">3</div></div>
-      <div class="fact"><div class="label">Блоков</div><div class="value">7</div></div>
+      <div class="fact"><div class="label">Блоков</div><div class="value">6</div></div>
       <div class="fact"><div class="label">Позиций закупки</div><div class="value">136</div></div>
     </div>
   </header>
@@ -575,40 +584,28 @@
 <div class="meal"><div class="meal-head"><span class="ic">🌅</span><h3>Второй завтрак</h3><span class="date">вс 01.11</span></div><ul><li>Геркулес</li><li>Сосиски</li><li>Бульон куриный</li><li>Компот из яблок</li></ul><div class="to-table"><b>Наше:</b> сгущёнка, молоко, чай, кофе, сладкое</div></div>
 </div><p class="menu-legend">Карточки с пометкой «наше» готовим мы. В меню, которое прислала база, второй день стоял на 01.11, а третий на 02.11. Здесь даты по программе стыковки.</p></section>
 <section class="teams" id="timeline"><h2>Таймлайн по дням</h2><p class="t-sub">Цифры справа — какие блоки работают в это время.</p><table class="teams-tbl"><thead><tr><th>День</th><th>Когда</th><th>Что</th><th class="num">Блоки</th></tr></thead><tbody>
-<tr><td>Пт 30.10</td><td>днём</td><td class="small">Расселение: велком-дринк — вишнёвая настойка и водка по 50 г, виноград на тарелочках. Заготовки в холодильник базы, маринуем свинину</td><td class="num">3, 5, 6</td></tr>
-<tr><td>Пт 30.10</td><td>19:30</td><td class="small">Велком у бара «Водопой»: коктейли и закуски</td><td class="num">2</td></tr>
-<tr><td>Пт 30.10</td><td>20:00</td><td class="small">Гала-ужин: меню базы + закуски, нарезки, хлеб, соусы, алкоголь</td><td class="num">1, 3, 6</td></tr>
-<tr><td>Сб 31.10</td><td>утро</td><td class="small">Завтрак базы + чай, кофе, сладкое</td><td class="num">1, 3</td></tr>
-<tr><td>Сб 31.10</td><td>день</td><td class="small">Сафари-квест, тир. Шашлычная зона, там же обед: борщ с пампушками от базы, шашлык из свинины, колбаски, курица, овощи, кукуруза, пунш, пиво</td><td class="num">1, 3, 5, 6</td></tr>
-<tr><td>Сб 31.10</td><td>день</td><td class="small">Баня — одновременно с мангальной зоной</td><td class="num">7</td></tr>
-<tr><td>Сб 31.10</td><td>19:00</td><td class="small">Банкет: меню базы + закуски, нарезки, хлеб, соусы, алкоголь</td><td class="num">1, 3, 6</td></tr>
-<tr><td>Вс 01.11</td><td>утро</td><td class="small">Завтрак базы + чай, кофе, сладкое. Сбор, вывоз мусора, отъезд</td><td class="num">1, 3, 4</td></tr>
+<tr><td>Пт 30.10</td><td>днём</td><td class="small">Расселение: велком-дринк — вишнёвая настойка и водка по 50 г, виноград на тарелочках. Заготовки в холодильник базы, маринуем свинину</td><td class="num">2, 4, 5</td></tr>
+<tr><td>Пт 30.10</td><td>19:30</td><td class="small">Велком у бара «Водопой»: коктейли и закуски</td><td class="num">1</td></tr>
+<tr><td>Пт 30.10</td><td>20:00</td><td class="small">Гала-ужин: меню базы + закуски, нарезки, хлеб, соусы, алкоголь</td><td class="num">2, 5</td></tr>
+<tr><td>Сб 31.10</td><td>утро</td><td class="small">Завтрак базы + чай, кофе, сладкое</td><td class="num">2</td></tr>
+<tr><td>Сб 31.10</td><td>день</td><td class="small">Сафари-квест, тир. Шашлычная зона, там же обед: борщ с пампушками от базы, шашлык из свинины, колбаски, курица, овощи, кукуруза, пунш, пиво</td><td class="num">2, 4, 5</td></tr>
+<tr><td>Сб 31.10</td><td>день</td><td class="small">Баня — одновременно с мангальной зоной</td><td class="num">6</td></tr>
+<tr><td>Сб 31.10</td><td>19:00</td><td class="small">Банкет: меню базы + закуски, нарезки, хлеб, соусы, алкоголь</td><td class="num">2, 5</td></tr>
+<tr><td>Вс 01.11</td><td>утро</td><td class="small">Завтрак базы + чай, кофе, сладкое. Сбор, вывоз мусора, отъезд</td><td class="num">2, 3</td></tr>
 </tbody></table></section>
-<section class="teams" id="expenses"><h2>Расходы и баланс</h2><p class="t-sub">Фиксированные платежи и закупки по ценам из таблицы, BYN.</p><table class="teams-tbl"><thead><tr><th>Статья</th><th class="num">BYN</th></tr></thead><tbody>
-<tr><td>Баня <span class="tag">4 часа</span></td><td class="num">320</td></tr>
-<tr><td>Аренда зала</td><td class="num">960</td></tr>
-<tr><td>Питание от базы</td><td class="num">6 230</td></tr>
-<tr><td>Проживание</td><td class="num">8 640</td></tr>
-<tr><td>Повара</td><td class="num">1 000</td></tr>
-<tr><td>Уборщицы</td><td class="num">200</td></tr>
-<tr><td>Печать баннера</td><td class="num">150</td></tr>
-<tr><td>Трансфер <span class="tag">200 туда + 200 обратно, 1 заход, машина на 20 мест, отъезд от Грина на Каменной горке</span></td><td class="num">400</td></tr>
-<tr class="total"><td>Итого фиксированные</td><td class="num">17 900</td></tr>
-<tr><td>Закупки <span class="tag">цены у 136 из 136 позиций</span></td><td class="num">5 037,27</td></tr><tr class="total"><td>Всего на сейчас</td><td class="num">22 937,27</td></tr>
-<tr><td>Выручка <span class="tag">80 × 300 BYN</span></td><td class="num">24 000</td></tr><tr class="total"><td>Баланс</td><td class="num">+1 062,73</td></tr>
-</tbody></table><p class="t-note">Расходы на участника: 286,72 BYN при взносе 300 BYN, 80 платящих. Цены стоят у всех позиций закупки.</p></section>
-<nav class="toc"><h2>Блоки</h2><ol>
-<li><a href="#kuhnya">🍽️ Кухня: меню базы</a> — Макс Богданов, Вика — Вика на связи с поварами базы</li>
-<li><a href="#bar">🍸 Бар «Водопой»</a> — Ира Романова</li>
-<li><a href="#dokorm">🥪 Докорм: закуски, хлеб, завтраки</a> — Ира Гутковская</li>
-<li><a href="#osn">🧺 Оснащение</a> — Ира Гутковская</li>
-<li><a href="#mangal">🔥 Дневная мангальная зона</a> — Витя Кузнецов</li>
-<li><a href="#alko">🍷 Алкоголь и безалкогольное</a> — Ира Гутковская</li>
-<li><a href="#banya">🧖 Баня</a> — Макс Богданов</li>
-<li><a href="#expenses">Расходы</a></li><li><a href="#prep">План заготовок</a></li><li><a href="#check">Проверить у базы и открытые вопросы</a></li><li><a href="#buylist">Список закупок</a></li></ol></nav>
-<div class="block-sec" id="kuhnya"><p class="bk">Блок 1</p><h2>🍽️ Кухня: меню базы</h2><span class="owner">Отвечает: Макс Богданов, Вика — Вика на связи с поварами базы</span><p class="bsum">Основное меню готовит база. Мы ничего не закупаем, только сверяем меню, время подачи и что база даёт к столу. Хлеба база не даёт — на банкеты он в докорме, к борщу у базы пампушки.</p></div>
-<div class="listbox"><h2>Что Вике сверить с поварами базы</h2><ul><li>Даты в меню: второй день — 31.10, завтрак отъезда — 01.11</li><li>Время подачи каждого приёма пищи и во сколько можно занести наши закуски</li><li>Выход порций на 75 человек и есть ли вегетарианцы</li><li>Шуба и салат из помидоров, капусты и перца стоят оба вечера — заменить ли один повтор</li><li>Стеклянные бокалы и стопки на ужины — будут от базы, подтвердить количество</li></ul></div>
-<div class="block-sec" id="bar"><p class="bk">Блок 2</p><h2>🍸 Бар «Водопой»</h2><span class="owner">Отвечает: Ира Романова</span><p class="bsum">Велком первого вечера прямо перед гала-ужином: тематический бар, коктейли под каждого зверя. Закуски к бару — нарезка колбасы и сыра, маслины, оливки, вяленые томаты, крекер, соломка, моцарелла, овощи, фрукты. Пунш и пиво для зоны шашлыка закупаются в блоке 6, наливает бар.</p></div>
+<nav class="toc"><h2>Блоки</h2><div class="toc-grid">
+<a class="toc-btn" href="#bar"><span class="ti">🍸</span><span class="tt"><b>1. Бар «Водопой»</b><small>Ира Романова</small></span><span class="go">→</span></a>
+<a class="toc-btn" href="#dokorm"><span class="ti">🥪</span><span class="tt"><b>2. Докорм: закуски, хлеб, завтраки</b><small>Ира Гутковская</small></span><span class="go">→</span></a>
+<a class="toc-btn" href="#osn"><span class="ti">🧺</span><span class="tt"><b>3. Оснащение</b><small>Ира Гутковская</small></span><span class="go">→</span></a>
+<a class="toc-btn" href="#mangal"><span class="ti">🔥</span><span class="tt"><b>4. Дневная мангальная зона</b><small>Витя Кузнецов</small></span><span class="go">→</span></a>
+<a class="toc-btn" href="#alko"><span class="ti">🍷</span><span class="tt"><b>5. Алкоголь и безалкогольное</b><small>Ира Гутковская</small></span><span class="go">→</span></a>
+<a class="toc-btn" href="#banya"><span class="ti">🧖</span><span class="tt"><b>6. Баня</b><small>Макс Богданов</small></span><span class="go">→</span></a>
+<a class="toc-btn" href="#prep"><span class="ti">🗓️</span><span class="tt"><b>План заготовок</b><small>что и когда готовим</small></span><span class="go">→</span></a>
+<a class="toc-btn" href="#check"><span class="ti">❓</span><span class="tt"><b>Проверить у базы</b><small>и открытые вопросы</small></span><span class="go">→</span></a>
+<a class="toc-btn" href="#buylist"><span class="ti">🛒</span><span class="tt"><b>Список закупок</b><small>с галочками и ценами</small></span><span class="go">→</span></a>
+<a class="toc-btn" href="#expenses"><span class="ti">💰</span><span class="tt"><b>Расходы и баланс</b><small>и ссылка на таблицу</small></span><span class="go">→</span></a>
+</div></nav>
+<div class="block-sec" id="bar"><p class="bk">Блок 1</p><h2>🍸 Бар «Водопой»</h2><span class="owner">Отвечает: Ира Романова</span><p class="bsum">Велком первого вечера прямо перед гала-ужином: тематический бар, коктейли под каждого зверя. Закуски к бару — нарезка колбасы и сыра, маслины, оливки, вяленые томаты, крекер, соломка, моцарелла, овощи, фрукты. Пунш и пиво для зоны шашлыка закупаются в блоке 5, наливает бар.</p></div>
 <section class="dish" id="c-mary">
 <h2>Кровавая Мэри</h2>
 <span class="meal-tag">«для диких» · 25 порций</span>
@@ -757,7 +754,7 @@
 </tbody></table>
 <p class="info">Ледогенератор берёт Макс Богданов. Звук у бара: рык диких кошек из колонки.</p>
 </section>
-<div class="block-sec" id="dokorm"><p class="bk">Блок 3</p><h2>🥪 Докорм: закуски, хлеб, завтраки</h2><span class="owner">Отвечает: Ира Гутковская</span><p class="bsum">Закуска на расселение, закуски и нарезки на два вечера сверх меню базы — по 600 г каждой закуски на стол, мясная нарезка 1 кг на стол в первый вечер и 700 г во второй, 8 столов. Плюс хлеб на банкеты, сладкое, чай и кофе на завтраки.</p></div>
+<div class="block-sec" id="dokorm"><p class="bk">Блок 2</p><h2>🥪 Докорм: закуски, хлеб, завтраки</h2><span class="owner">Отвечает: Ира Гутковская</span><p class="bsum">Закуска на расселение, закуски и нарезки на два вечера сверх меню базы — по 600 г каждой закуски на стол, мясная нарезка 1 кг на стол в первый вечер и 700 г во второй, 8 столов. Плюс хлеб на банкеты, сладкое, чай и кофе на завтраки.</p></div>
 <section class="dish" id="z-zaezd">
 <h2>Виноград на тарелочках</h2>
 <span class="meal-tag">пт 30.10 · расселение</span>
@@ -1001,7 +998,7 @@
 <tr><td>Конфеты</td><td class="qty">2 кг</td></tr>
 </tbody></table>
 </section>
-<div class="block-sec" id="osn"><p class="bk">Блок 4</p><h2>🧺 Оснащение</h2><span class="owner">Отвечает: Ира Гутковская</span><p class="bsum">Общее: вилки и ножи, шпажки, салфетки, туалеты, скатерти на 8 столов зала, всё под заготовки и для мангала. Посуда бара, шашлыка и бани — в их блоках.</p></div>
+<div class="block-sec" id="osn"><p class="bk">Блок 3</p><h2>🧺 Оснащение</h2><span class="owner">Отвечает: Ира Гутковская</span><p class="bsum">Общее: вилки и ножи, шпажки, салфетки, туалеты, скатерти на 8 столов зала, всё под заготовки и для мангала. Посуда бара, шашлыка и бани — в их блоках.</p></div>
 <section class="dish" id="o-posuda">
 <h2>Одноразовая посуда</h2>
 <span class="meal-tag">расселение, вечера</span>
@@ -1017,7 +1014,7 @@
 <span class="meal-tag">все три дня</span>
 <div class="block-title">Что нужно на 75 человек</div>
 <table class="ingredients"><thead><tr><th>Продукт</th><th class="qty">Количество</th></tr></thead><tbody>
-<tr><td>Салфетки бумажные, упаковка 100 шт<span class="note">шашлык — в блоке 5</span></td><td class="qty">6 уп</td></tr>
+<tr><td>Салфетки бумажные, упаковка 100 шт<span class="note">шашлык — в блоке 4</span></td><td class="qty">6 уп</td></tr>
 <tr><td>Туалетная бумага<span class="note">≈4 туалета × 2 суток × 3 рулона</span></td><td class="qty">24 рулон</td></tr>
 <tr><td>Освежитель воздуха</td><td class="qty">4 шт</td></tr>
 <tr><td>Жидкое мыло<span class="note">есть, не покупаем</span></td><td class="qty">4 шт</td></tr>
@@ -1029,7 +1026,7 @@
 <span class="meal-tag">зал, 8 столов</span>
 <div class="block-title">Что нужно на 75 человек</div>
 <table class="ingredients"><thead><tr><th>Продукт</th><th class="qty">Количество</th></tr></thead><tbody>
-<tr><td>Скатерти одноразовые 120×220<span class="note">8 столов в зале, шашлык — в блоке 5, есть, не покупаем</span></td><td class="qty">8 шт</td></tr>
+<tr><td>Скатерти одноразовые 120×220<span class="note">8 столов в зале, шашлык — в блоке 4, есть, не покупаем</span></td><td class="qty">8 шт</td></tr>
 <tr><td>Ткань с леопардовым или зебровым принтом на дорожки<span class="note">дорожки по столам и на бар</span></td><td class="qty">8 м</td></tr>
 </tbody></table>
 <p class="info">Шкуры, рыбки и фотозона — в программе стыковки, здесь только текстиль на столы.</p>
@@ -1065,7 +1062,7 @@
 </tbody></table>
 <p class="info">Шампуры и решётки берёт Витя Кузнецов. Мангалы, дрова и стол для разделки — уточнить у базы, навес есть.</p>
 </section>
-<div class="block-sec" id="mangal"><p class="bk">Блок 5</p><h2>🔥 Дневная мангальная зона</h2><span class="owner">Отвечает: Витя Кузнецов</span><p class="bsum">Суббота, день, между квестом и тиром. «Хищникам мясо», «травоядным» овощи на гриле. Сырого мяса 26 кг — свинина 12, колбаски 8, курица 6, ≈345 г на гостя; там же и в то же время база подаёт обед — борщ с пампушками.</p></div>
+<div class="block-sec" id="mangal"><p class="bk">Блок 4</p><h2>🔥 Дневная мангальная зона</h2><span class="owner">Отвечает: Витя Кузнецов</span><p class="bsum">Суббота, день, между квестом и тиром. «Хищникам мясо», «травоядным» овощи на гриле. Сырого мяса 26 кг — свинина 12, колбаски 8, курица 6, ≈345 г на гостя; там же и в то же время база подаёт обед — борщ с пампушками.</p></div>
 <section class="dish" id="m-svinina">
 <h2>Шашлык из свинины</h2>
 <span class="meal-tag">хищникам</span>
@@ -1183,7 +1180,7 @@
 <tr><td>Кетчуп<span class="note">острый и неострый</span></td><td class="qty">2 бут</td></tr>
 </tbody></table>
 </section>
-<div class="block-sec" id="alko"><p class="bk">Блок 6</p><h2>🍷 Алкоголь и безалкогольное</h2><span class="owner">Отвечает: Ира Гутковская</span><p class="bsum">Два полноценных вечера, дневная зона шашлыка, велком-дринк на расселение, минералка в номера, безалкогольное для непьющих. На банкетах на каждый из 8 столов: около 3 бутылок крепкого 0,5 — водка и самогон — и около 4 бутылок вина, 2 л сока, 2 газированной воды, 1 кола или спрайт; в первый вечер без негазированной воды.</p></div>
+<div class="block-sec" id="alko"><p class="bk">Блок 5</p><h2>🍷 Алкоголь и безалкогольное</h2><span class="owner">Отвечает: Ира Гутковская</span><p class="bsum">Два полноценных вечера, дневная зона шашлыка, велком-дринк на расселение, минералка в номера, безалкогольное для непьющих. На банкетах на каждый из 8 столов: около 3 бутылок крепкого 0,5 — водка и самогон — и около 4 бутылок вина, 2 л сока, 2 газированной воды, 1 кола или спрайт; в первый вечер без негазированной воды.</p></div>
 <section class="dish" id="a-zaezd">
 <h2>Велком-дринк на расселение</h2>
 <span class="meal-tag">пт 30.10 · расселение</span>
@@ -1196,7 +1193,7 @@
 <tr><td>Настойка вишнёвая 0,5 л<span class="note">«вишенка»</span></td><td class="qty">4 бут</td></tr>
 <tr><td>Водка 0,5 л</td><td class="qty">4 бут</td></tr>
 </tbody></table>
-<p class="info">По 50 г на человека, наливаем в стопки на выбор: вишенка или водка. К ним виноград на тарелочках из блока 3.</p>
+<p class="info">По 50 г на человека, наливаем в стопки на выбор: вишенка или водка. К ним виноград на тарелочках из блока 2.</p>
 </section>
 <section class="dish" id="a-v1">
 <h2>Вечер 1, гала-ужин</h2>
@@ -1295,7 +1292,7 @@
 <tr><td>Минералка в номера 1,5 л</td><td class="qty">40 бут</td></tr>
 </tbody></table>
 </section>
-<div class="block-sec" id="banya"><p class="bk">Блок 7</p><h2>🧖 Баня</h2><span class="owner">Отвечает: Макс Богданов</span><p class="bsum">Одновременно с мангальной зоной. Только то, что назвал Макс Богданов: пиво, рыбка, орешки и сухарики, посуда. Цены и количества по пиву, снекам и посуде — от Макса Богданова; пиво урезано с 70 до 50 л, шампанское убрано ради экономии.</p></div>
+<div class="block-sec" id="banya"><p class="bk">Блок 6</p><h2>🧖 Баня</h2><span class="owner">Отвечает: Макс Богданов</span><p class="bsum">Одновременно с мангальной зоной. Только то, что назвал Макс Богданов: пиво, рыбка, орешки и сухарики, посуда. Цены и количества по пиву, снекам и посуде — от Макса Богданова; пиво урезано с 70 до 50 л, шампанское убрано ради экономии.</p></div>
 <section class="dish" id="b-napitki">
 <h2>Напитки в баню</h2>
 <span class="meal-tag">баня</span>
@@ -1348,7 +1345,7 @@
       <button type="button" data-reset="#buylist">Сбросить отметки</button>
       <span class="bl-status">…</span>
     </div>
-<h3>2. Бар «Водопой»<span class="own">— Ира Романова · 430,16 BYN за 36 из 36</span></h3>
+<h3>1. Бар «Водопой»<span class="own">— Ира Романова · 430,16 BYN за 36 из 36</span></h3>
 <h4>Мясо, рыба, колбасы</h4><ul class="checklist">
 <li><label><input type="checkbox" data-k="bar--kolbasa-sk"><span class="it">Колбаса сырокопчёная <em>— Закуски к бару</em> <em>· 28 × 1,5 = 42 BYN</em></span><span class="q">1,5 кг</span></label></li>
 </ul>
@@ -1405,7 +1402,7 @@
 <li><label><input type="checkbox" data-k="bar--trubochki"><span class="it">Трубочки для коктейлей, упаковка 100 шт <em>— Посуда на бар</em> <em>· есть, не покупаем</em> <em>· закупает Антон Дашкевич</em></span><span class="q">1 уп</span></label></li>
 <li><label><input type="checkbox" data-k="bar--shpazhki-dekor"><span class="it">Шпажки для украшения коктейлей <em>— Посуда на бар</em> <em>· есть, не покупаем</em> <em>· закупает Антон Дашкевич</em></span><span class="q">1 уп</span></label></li>
 </ul>
-<h3>3. Докорм: закуски, хлеб, завтраки<span class="own">— Ира Гутковская · 980,02 BYN за 32 из 32</span></h3>
+<h3>2. Докорм: закуски, хлеб, завтраки<span class="own">— Ира Гутковская · 980,02 BYN за 32 из 32</span></h3>
 <h4>Мясо, рыба, колбасы</h4><ul class="checklist">
 <li><label><input type="checkbox" data-k="dokorm--ryba-ss"><span class="it">Сельдь филе слабосолёная «Матиас» <em>— Блинчики с рыбкой, плавленым сыром и укропом</em> <em>· 21,28 × 1,3 = 27,66 BYN</em> <em>· закупает Света Ризмакова</em></span><span class="q">1,3 кг</span></label></li>
 <li><label><input type="checkbox" data-k="dokorm--myaso-assorti"><span class="it">Мясное ассорти: копчёная и копчёно-варёная колбаса <em>— Мясная нарезка; Мясная нарезка с грудинкой</em> <em>· 28 × 12,6 = 352,80 BYN</em></span><span class="q">12,6 кг</span></label></li>
@@ -1440,23 +1437,23 @@
 <li><label><input type="checkbox" data-k="dokorm--pomidory-mar"><span class="it">Помидоры маринованные <em>— Соленья</em> <em>· есть, не покупаем</em></span><span class="q">1 кг</span></label></li>
 <li><label><input type="checkbox" data-k="dokorm--griby-mar"><span class="it">Грибы маринованные <em>— Соленья</em> <em>· есть, не покупаем</em></span><span class="q">0,8 кг</span></label></li>
 <li><label><input type="checkbox" data-k="dokorm--kapusta-kvash"><span class="it">Капуста квашеная <em>— Соленья</em> <em>· есть, не покупаем</em></span><span class="q">0,7 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--sahar"><span class="it">Сахар <em>— Чай и кофе</em> <em>· есть, не покупаем</em> <em>· закупает В наличии</em></span><span class="q">2 кг</span></label></li>
+<li><label><input type="checkbox" data-k="dokorm--sahar"><span class="it">Сахар <em>— Чай и кофе</em> <em>· есть, не покупаем</em></span><span class="q">2 кг</span></label></li>
 </ul>
 <h4>Соусы</h4><ul class="checklist">
 <li><label><input type="checkbox" data-k="dokorm--hren-kg"><span class="it">Хрен <em>— Хлеб и соусы</em> <em>· 18,01 × 0,4 = 7,20 BYN</em></span><span class="q">0,4 кг</span></label></li>
 <li><label><input type="checkbox" data-k="dokorm--hren"><span class="it">Хрен, банка <em>— Хлеб и соусы</em> <em>· 3,04 × 2 = 6,08 BYN</em></span><span class="q">2 банка</span></label></li>
 </ul>
 <h4>Сладкое, чай, кофе</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="dokorm--varene"><span class="it">Варенье, банка ≈0,5 кг <em>— К оладьям: варенье</em> <em>· есть, не покупаем</em> <em>· закупает В наличии</em></span><span class="q">4 банка</span></label></li>
+<li><label><input type="checkbox" data-k="dokorm--varene"><span class="it">Варенье, банка ≈0,5 кг <em>— К оладьям: варенье</em> <em>· есть, не покупаем</em></span><span class="q">4 банка</span></label></li>
 <li><label><input type="checkbox" data-k="dokorm--chaj-kofe"><span class="it">Чай и кофе <em>— Чай и кофе</em> <em>· 100 × 1 = 100 BYN</em></span><span class="q">1 набор</span></label></li>
 <li><label><input type="checkbox" data-k="dokorm--pechene"><span class="it">Печенье <em>— Сладкое к завтракам</em> <em>· 6 × 3 = 18 BYN</em></span><span class="q">3 кг</span></label></li>
 <li><label><input type="checkbox" data-k="dokorm--pryaniki"><span class="it">Пряники <em>— Сладкое к завтракам</em> <em>· 6 × 1,5 = 9 BYN</em></span><span class="q">1,5 кг</span></label></li>
 <li><label><input type="checkbox" data-k="dokorm--konfety"><span class="it">Конфеты <em>— Сладкое к завтракам</em> <em>· 10 × 2 = 20 BYN</em></span><span class="q">2 кг</span></label></li>
 </ul>
 <h4>Одноразовая посуда</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="dokorm--tarelki-zakus"><span class="it">Тарелочки закусочные маленькие <em>— Виноград на тарелочках</em> <em>· есть, не покупаем</em> <em>· закупает В наличии</em></span><span class="q">80 шт</span></label></li>
+<li><label><input type="checkbox" data-k="dokorm--tarelki-zakus"><span class="it">Тарелочки закусочные маленькие <em>— Виноград на тарелочках</em> <em>· есть, не покупаем</em></span><span class="q">80 шт</span></label></li>
 </ul>
-<h3>4. Оснащение<span class="own">— Ира Гутковская · 165,35 BYN за 18 из 18</span></h3>
+<h3>3. Оснащение<span class="own">— Ира Гутковская · 165,35 BYN за 18 из 18</span></h3>
 <h4>Одноразовая посуда</h4><ul class="checklist">
 <li><label><input type="checkbox" data-k="osn--vilki"><span class="it">Вилки одноразовые, упаковка 100 шт <em>— Одноразовая посуда</em> <em>· есть, не покупаем</em> <em>· закупает Антон Дашкевич</em></span><span class="q">3 уп</span></label></li>
 <li><label><input type="checkbox" data-k="osn--nozhi"><span class="it">Ножи одноразовые, упаковка 100 шт <em>— Одноразовая посуда</em> <em>· есть, не покупаем</em> <em>· закупает Антон Дашкевич</em></span><span class="q">1 уп</span></label></li>
@@ -1483,7 +1480,7 @@
 <li><label><input type="checkbox" data-k="osn--akvagrim"><span class="it">Аквагрим <em>— Аквагрим и золотая краска</em> <em>· 15 × 1 = 15 BYN</em></span><span class="q">1 набор</span></label></li>
 <li><label><input type="checkbox" data-k="osn--kraska-zoloto"><span class="it">Баллончик с золотой краской <em>— Аквагрим и золотая краска</em> <em>· 15 × 1 = 15 BYN</em></span><span class="q">1 шт</span></label></li>
 </ul>
-<h3>5. Дневная мангальная зона<span class="own">— Витя Кузнецов · 473,16 BYN за 23 из 23</span></h3>
+<h3>4. Дневная мангальная зона<span class="own">— Витя Кузнецов · 473,16 BYN за 23 из 23</span></h3>
 <h4>Мясо, рыба, колбасы</h4><ul class="checklist">
 <li><label><input type="checkbox" data-k="mangal--svin-okorok"><span class="it">Свиной окорок без кости <em>— Шашлык из свинины</em> <em>· 10 × 12 = 120 BYN</em></span><span class="q">12 кг</span></label></li>
 <li><label><input type="checkbox" data-k="mangal--kolbaski"><span class="it">Колбаски для гриля <em>— Колбаски на гриле</em> <em>· 14 × 8 = 112 BYN</em></span><span class="q">8 кг</span></label></li>
@@ -1508,8 +1505,8 @@
 <li><label><input type="checkbox" data-k="mangal--ketchup"><span class="it">Кетчуп <em>— Соусы к мангалу</em> <em>· 7 × 2 = 14 BYN</em> <em>· закупает Маяк</em></span><span class="q">2 бут</span></label></li>
 </ul>
 <h4>Одноразовая посуда</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="mangal--tarelki-sht"><span class="it">Тарелки одноразовые <em>— Посуда и расходники на шашлык и обед</em> <em>· есть, не покупаем</em> <em>· закупает В наличии</em></span><span class="q">200 шт</span></label></li>
-<li><label><input type="checkbox" data-k="mangal--tarelki-sup"><span class="it">Тарелки глубокие вспененные под суп <em>— Посуда и расходники на шашлык и обед</em> <em>· есть, не покупаем</em> <em>· закупает В наличии</em></span><span class="q">80 шт</span></label></li>
+<li><label><input type="checkbox" data-k="mangal--tarelki-sht"><span class="it">Тарелки одноразовые <em>— Посуда и расходники на шашлык и обед</em> <em>· есть, не покупаем</em></span><span class="q">200 шт</span></label></li>
+<li><label><input type="checkbox" data-k="mangal--tarelki-sup"><span class="it">Тарелки глубокие вспененные под суп <em>— Посуда и расходники на шашлык и обед</em> <em>· есть, не покупаем</em></span><span class="q">80 шт</span></label></li>
 <li><label><input type="checkbox" data-k="mangal--lozhki"><span class="it">Ложки одноразовые <em>— Посуда и расходники на шашлык и обед</em> <em>· есть, не покупаем</em> <em>· закупает Антон Дашкевич</em></span><span class="q">80 шт</span></label></li>
 <li><label><input type="checkbox" data-k="mangal--stakany-02"><span class="it">Стаканы пластиковые 0,2 л <em>— Посуда и расходники на шашлык и обед</em> <em>· 0,05 × 200 = 10,66 BYN</em> <em>· закупает Антон Дашкевич</em></span><span class="q">200 шт</span></label></li>
 <li><label><input type="checkbox" data-k="mangal--stakany-05"><span class="it">Стаканы пластиковые 0,5 л <em>— Посуда и расходники на шашлык и обед</em> <em>· 0,18 × 100 = 17,53 BYN</em> <em>· закупает Антон Дашкевич</em></span><span class="q">100 шт</span></label></li>
@@ -1521,7 +1518,7 @@
 <li><label><input type="checkbox" data-k="mangal--polotenca"><span class="it">Бумажные полотенца <em>— Посуда и расходники на шашлык и обед</em> <em>· 2,93 × 4 = 11,72 BYN</em></span><span class="q">4 рулон</span></label></li>
 <li><label><input type="checkbox" data-k="mangal--skaterti"><span class="it">Скатерти одноразовые 120×220 <em>— Посуда и расходники на шашлык и обед</em> <em>· есть, не покупаем</em></span><span class="q">4 шт</span></label></li>
 </ul>
-<h3>6. Алкоголь и безалкогольное<span class="own">— Ира Гутковская · 2 505 BYN за 19 из 19</span></h3>
+<h3>5. Алкоголь и безалкогольное<span class="own">— Ира Гутковская · 2 505 BYN за 19 из 19</span></h3>
 <h4>Фрукты</h4><ul class="checklist">
 <li><label><input type="checkbox" data-k="alko--apelsiny"><span class="it">Апельсины крупные <em>— Пунш для шашлыка</em> <em>· 2 × 5 = 10 BYN</em> <em>· закупает Ира Романова</em></span><span class="q">5 шт</span></label></li>
 <li><label><input type="checkbox" data-k="alko--yabloki"><span class="it">Яблоки <em>— Пунш для шашлыка</em> <em>· 3 × 2 = 6 BYN</em> <em>· закупает Ира Романова</em></span><span class="q">2 кг</span></label></li>
@@ -1547,7 +1544,7 @@
 <li><label><input type="checkbox" data-k="alko--bezalk-pivo"><span class="it">Пиво безалкогольное 0,5 л <em>— День: зона шашлыка</em> <em>· 2,50 × 24 = 60 BYN</em></span><span class="q">24 банка</span></label></li>
 <li><label><input type="checkbox" data-k="alko--voda-komn"><span class="it">Минералка в номера 1,5 л <em>— Минералка в номера</em> <em>· 1,50 × 40 = 60 BYN</em></span><span class="q">40 бут</span></label></li>
 </ul>
-<h3>7. Баня<span class="own">— Макс Богданов · 483,57 BYN за 8 из 8</span></h3>
+<h3>6. Баня<span class="own">— Макс Богданов · 483,57 BYN за 8 из 8</span></h3>
 <h4>Алкоголь</h4><ul class="checklist">
 <li><label><input type="checkbox" data-k="banya--pivo"><span class="it">Пиво 0,5 л <em>— Напитки в баню</em> <em>· 2,61 × 100 = 260,71 BYN</em></span><span class="q">100 банка</span></label></li>
 </ul>
@@ -1558,14 +1555,27 @@
 <h4>Одноразовая посуда</h4><ul class="checklist">
 <li><label><input type="checkbox" data-k="banya--stakany-05"><span class="it">Стаканы пластиковые 0,5 л <em>— Посуда в баню</em> <em>· 0,18 × 100 = 17,53 BYN</em> <em>· закупает Антон Дашкевич</em></span><span class="q">100 шт</span></label></li>
 <li><label><input type="checkbox" data-k="banya--stakany-02"><span class="it">Стаканы пластиковые 0,2 л <em>— Посуда в баню</em> <em>· 0,05 × 100 = 5,33 BYN</em> <em>· закупает Антон Дашкевич</em></span><span class="q">100 шт</span></label></li>
-<li><label><input type="checkbox" data-k="banya--tarelki-glub"><span class="it">Тарелки глубокие <em>— Посуда в баню</em> <em>· есть, не покупаем</em> <em>· закупает В наличии</em></span><span class="q">20 шт</span></label></li>
-<li><label><input type="checkbox" data-k="banya--tarelki-plosk"><span class="it">Тарелки плоские <em>— Посуда в баню</em> <em>· есть, не покупаем</em> <em>· закупает В наличии</em></span><span class="q">20 шт</span></label></li>
+<li><label><input type="checkbox" data-k="banya--tarelki-glub"><span class="it">Тарелки глубокие <em>— Посуда в баню</em> <em>· есть, не покупаем</em></span><span class="q">20 шт</span></label></li>
+<li><label><input type="checkbox" data-k="banya--tarelki-plosk"><span class="it">Тарелки плоские <em>— Посуда в баню</em> <em>· есть, не покупаем</em></span><span class="q">20 шт</span></label></li>
 </ul>
 <h4>Хозяйственное</h4><ul class="checklist">
 <li><label><input type="checkbox" data-k="banya--skatert-rulon"><span class="it">Скатерть одноразовая, рулон <em>— Посуда в баню</em> <em>· есть, не покупаем</em></span><span class="q">1 рулон</span></label></li>
 </ul>
 <div class="bl-total"><span>Итого по закупкам, цены у 136 из 136 позиций</span><b>≈ 5 037,27 BYN</b></div>
 <p class="bl-note">Цены ведём в таблице, на страницу они попадают при пересборке с --sheet. Позиции с пометкой «есть, не покупаем» стоят с ценой 0: это уже есть у команды или у базы.</p></section>
+<section class="teams" id="expenses"><h2>Расходы и баланс</h2><p class="t-sub">Фиксированные платежи и закупки по ценам из таблицы, BYN.</p><table class="teams-tbl"><thead><tr><th>Статья</th><th class="num">BYN</th></tr></thead><tbody>
+<tr><td>Баня <span class="tag">4 часа</span></td><td class="num">320</td></tr>
+<tr><td>Аренда зала</td><td class="num">960</td></tr>
+<tr><td>Питание от базы</td><td class="num">6 230</td></tr>
+<tr><td>Проживание</td><td class="num">8 640</td></tr>
+<tr><td>Повара</td><td class="num">1 000</td></tr>
+<tr><td>Уборщицы</td><td class="num">200</td></tr>
+<tr><td>Печать баннера</td><td class="num">150</td></tr>
+<tr><td>Трансфер <span class="tag">200 туда + 200 обратно, 1 заход, машина на 20 мест, отъезд от Грина на Каменной горке</span></td><td class="num">400</td></tr>
+<tr class="total"><td>Итого фиксированные</td><td class="num">17 900</td></tr>
+<tr><td>Закупки <span class="tag">цены у 136 из 136 позиций</span></td><td class="num">5 037,27</td></tr><tr class="total"><td>Всего на сейчас</td><td class="num">22 937,27</td></tr>
+<tr><td>Выручка <span class="tag">80 × 300 BYN</span></td><td class="num">24 000</td></tr><tr class="total"><td>Баланс</td><td class="num">+1 062,73</td></tr>
+</tbody></table><p class="t-note">Расходы на участника: 286,72 BYN при взносе 300 BYN, 80 платящих. Цены стоят у всех позиций закупки.</p><a class="sheet-link" href="https://docs.google.com/spreadsheets/d/160hJt7asUIN4v0-WHG86glgGFCWTEzlcik0A4lZailw/edit" target="_blank" rel="noopener">📊 Бюджет, расходы и закупки в Google Sheets →</a></section>
 <footer class="page">Собрано из tools/kitchen_data.py · таблица: <a href="https://docs.google.com/spreadsheets/d/160hJt7asUIN4v0-WHG86glgGFCWTEzlcik0A4lZailw/edit" target="_blank" rel="noopener">Закупки — Трансславянская стыковка 2026</a></footer></div>
 <script>
 var SYNC_URL = "";
