@@ -514,6 +514,8 @@
     .dish:not(.open) .dish-body { display: block; }
   }
 
+  ul.checklist .it em.ok { color:#2f7d32; font-style:normal; font-weight:600; }
+  .buylist h4 .own { margin-left:8px; text-transform:none; letter-spacing:0; font-weight:500; color:var(--muted); }
   .toc-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:10px; }
   .toc-btn { display:flex; align-items:center; gap:12px; padding:12px 14px; border-radius:14px; border:1px solid var(--line, #e3e1da);
              background:var(--bg, #faf9f6); color:var(--ink); text-decoration:none; transition:background .15s, border-color .15s, transform .15s; }
@@ -1344,230 +1346,170 @@
 <div class="listbox" id="check"><h2>Проверить у базы</h2><ul><li>Мангалы: сколько и какого размера. На 26 кг мяса, овощи и кукурузу нужно два-три больших</li><li>Дрова и уголь: что даёт база. Своего угля берём 25 кг, 5 мешков</li><li>Стол для разделки у мангала. Навес есть</li><li>Кипяток на завтраки: термопоты или кипятильник, кружки</li><li>Сколько общих туалетов — под бумагу и освежители</li><li>Время подачи ужинов и завтраков</li></ul><h3>Открытые вопросы</h3><ul><li>Докорм и оснащение: назначить 4 человека на первый вечер и 4 на второй — <b>Вика и Ира</b></li></ul></div>
 <section class="buylist" id="buylist">
     <h2>Список закупок</h2>
-    <p class="bl-sub">Сводно по всем блокам на 75 человек, по блокам и разделам магазина.
+    <p class="bl-sub">Единый список на 75 человек: каждое наименование одной строкой, количество сложено по всем блюдам и блокам. Сгруппировано по разделам магазина.
     Цены и бюджет ведём в <a href="https://docs.google.com/spreadsheets/d/160hJt7asUIN4v0-WHG86glgGFCWTEzlcik0A4lZailw/edit" target="_blank" rel="noopener">Google Таблице</a>.</p>
     <div class="bl-actions">
       <button type="button" id="bl-who">Подписать отметки</button>
       <button type="button" data-reset="#buylist">Сбросить отметки</button>
       <span class="bl-status">…</span>
     </div>
-<h3>1. Бар «Водопой»<span class="own">— Ира Романова · 415,77 BYN за 36 из 36</span></h3>
-<h4>Мясо, рыба, колбасы</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="bar--kolbasa-sk"><span class="it">Колбаса сырокопчёная <em>— Закуски к бару</em> <em>· 28 × 1,4 = 39,20 BYN</em> <em>· где: Грошик</em></span><span class="q">1,4 кг</span></label></li>
+<h4>Мясо, рыба, колбасы<span class="own">757,14 BYN</span></h4><ul class="checklist">
+<li><label><input type="checkbox" data-k="all--vetchina"><span class="it">Ветчина, тонкая нарезка <em>· 64,40 BYN</em> <em>· Ира Гутковская</em> <em>· где: Грошик</em></span><span class="q">2,3 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--grudinka"><span class="it">Грудинка копчёная <em>· 25,20 BYN</em> <em>· Ира Гутковская</em></span><span class="q">0,9 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--kolbasa-sk" checked><span class="it">Колбаса сырокопчёная <em>· 39,20 BYN</em> <em>· Ира Романова</em> <em>· где: Грошик</em> <em class="ok">· куплено</em></span><span class="q">1,4 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--kolbaski"><span class="it">Колбаски для гриля <em>· 112 BYN</em> <em>· Витя Кузнецов</em> <em>· где: Витя, опт</em></span><span class="q">8 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--kurica-gril"><span class="it">Курица для гриля <em>· 60 BYN</em> <em>· Витя Кузнецов</em> <em>· где: Витя, опт</em></span><span class="q">6 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--myaso-assorti"><span class="it">Мясное ассорти: копчёная и копчёно-варёная колбаса <em>· 310,80 BYN</em> <em>· Ира Гутковская</em> <em>· где: Грошик</em></span><span class="q">11,1 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--svin-okorok"><span class="it">Свиной окорок без кости <em>· 120 BYN</em> <em>· Витя Кузнецов</em> <em>· где: Витя, опт</em></span><span class="q">12 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--ryba-ss"><span class="it">Сельдь филе слабосолёная «Матиас» <em>· 25,54 BYN</em> <em>· Света Ризмакова</em></span><span class="q">1,2 кг</span></label></li>
 </ul>
-<h4>Сыр, молочное, яйца</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="bar--slivki"><span class="it">Сливки 10% <em>— Новый русский</em> <em>· 8 × 1 = 8 BYN</em></span><span class="q">1 л</span></label></li>
-<li><label><input type="checkbox" data-k="bar--syr-ros"><span class="it">Сыр российский <em>— Закуски к бару</em> <em>· 22 × 0,9 = 19,80 BYN</em> <em>· где: Маяк</em></span><span class="q">0,9 кг</span></label></li>
-<li><label><input type="checkbox" data-k="bar--mocarella"><span class="it">Моцарелла мини <em>— Закуски к бару</em> <em>· 3,26 × 2 = 6,52 BYN</em> <em>· закупает Ира Гутковская</em> <em>· где: Маяк</em></span><span class="q">2 пачка</span></label></li>
+<h4>Сыр, молочное, яйца<span class="own">172,77 BYN</span></h4><ul class="checklist">
+<li><label><input type="checkbox" data-k="all--majonez"><span class="it">Майонез <em>· 5,95 BYN</em> <em>· Ира Гутковская</em> <em>· где: Маяк</em></span><span class="q">0,85 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--moloko"><span class="it">Молоко <em>· 30,14 BYN</em> <em>· Ира Гутковская</em></span><span class="q">11 л</span></label></li>
+<li><label><input type="checkbox" data-k="all--moloko-bliny"><span class="it">Молоко на блины <em>· 7,40 BYN</em> <em>· Света Ризмакова</em></span><span class="q">2,7 л</span></label></li>
+<li><label><input type="checkbox" data-k="all--mocarella" checked><span class="it">Моцарелла мини <em>· 6,52 BYN</em> <em>· Ира Гутковская</em> <em>· где: Маяк</em> <em class="ok">· куплено</em></span><span class="q">2 пачка</span></label></li>
+<li><label><input type="checkbox" data-k="all--sgushchenka"><span class="it">Сгущённое молоко, банка 380 г <em>· 9,14 BYN</em> <em>· Ира Гутковская</em></span><span class="q">2 банка</span></label></li>
+<li><label><input type="checkbox" data-k="all--slivki" checked><span class="it">Сливки 10% <em>· 8 BYN</em> <em>· Ира Романова</em> <em class="ok">· куплено</em></span><span class="q">1 л</span></label></li>
+<li><label><input type="checkbox" data-k="all--syr-plavl"><span class="it">Сыр плавленый сливочный <em>· 35,72 BYN</em> <em>· Света Ризмакова</em> <em>· где: Маяк</em></span><span class="q">1,1 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--syr-tverd"><span class="it">Сыр полутвёрдый для начинок <em>· 48,40 BYN</em> <em>· Ира Гутковская</em> <em>· где: Маяк</em></span><span class="q">2,2 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--syr-ros" checked><span class="it">Сыр российский <em>· 19,80 BYN</em> <em>· Ира Романова</em> <em>· где: Маяк</em> <em class="ok">· куплено</em></span><span class="q">0,9 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--yajca"><span class="it">Яйца <em>· 1,70 BYN</em> <em>· Света Ризмакова</em></span><span class="q">4 шт</span></label></li>
 </ul>
-<h4>Овощи и зелень</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="bar--ogurcy"><span class="it">Огурцы свежие <em>— Безалкогольный лимонад</em> <em>· 3 × 1,5 = 4,50 BYN</em> <em>· где: Таборы</em></span><span class="q">1,5 кг</span></label></li>
-<li><label><input type="checkbox" data-k="bar--myata"><span class="it">Мята свежая <em>— Безалкогольный лимонад</em> <em>· 3 × 3 = 9 BYN</em> <em>· где: Таборы</em></span><span class="q">3 пучок</span></label></li>
-<li><label><input type="checkbox" data-k="bar--perec-kras"><span class="it">Перец болгарский красный <em>— Закуски к бару</em> <em>· 10 × 0,7 = 7 BYN</em> <em>· где: Таборы</em></span><span class="q">0,7 кг</span></label></li>
-<li><label><input type="checkbox" data-k="bar--morkov"><span class="it">Морковь <em>— Закуски к бару</em> <em>· есть, не покупаем</em> <em>· закупает Ира Гутковская</em></span><span class="q">0,9 кг</span></label></li>
-<li><label><input type="checkbox" data-k="bar--cherri"><span class="it">Помидоры черри <em>— Закуски к бару</em> <em>· 12 × 0,45 = 5,40 BYN</em> <em>· где: Таборы</em></span><span class="q">0,45 кг</span></label></li>
+<h4>Овощи и зелень<span class="own">107 BYN</span></h4><ul class="checklist">
+<li><label><input type="checkbox" data-k="all--zelen"><span class="it">Зелень: укроп, петрушка, зелёный лук <em>· 10 BYN</em> <em>· Витя Кузнецов</em> <em>· где: Таборы</em></span><span class="q">5 пучок</span></label></li>
+<li><label><input type="checkbox" data-k="all--kukuruza"><span class="it">Кукуруза в початках <em>· 10,80 BYN</em> <em>· Витя Кузнецов</em> <em>· где: Таборы</em></span><span class="q">5,4 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--luk"><span class="it">Лук репчатый <em>· 11,60 BYN</em> <em>· Витя Кузнецов</em> <em>· где: Таборы</em></span><span class="q">5,8 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--morkov" checked><span class="it">Морковь <em>· есть, не покупаем</em> <em>· Ира Гутковская</em> <em class="ok">· куплено</em></span><span class="q">0,9 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--myata" checked><span class="it">Мята свежая <em>· 9 BYN</em> <em>· Ира Романова</em> <em>· где: Таборы</em> <em class="ok">· куплено</em></span><span class="q">3 пучок</span></label></li>
+<li><label><input type="checkbox" data-k="all--ovoshi-gril"><span class="it">Овощи для гриля: перец, баклажаны, цуккини, шампиньоны крупные <em>· 18 BYN</em> <em>· Витя Кузнецов</em> <em>· где: Таборы</em></span><span class="q">4,5 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--ogurcy"><span class="it">Огурцы свежие <em>· 8,70 BYN</em> <em>· Ира Романова, Витя Кузнецов</em> <em>· где: Таборы</em> <em class="ok">· куплено 1,5 из 2,9 кг</em></span><span class="q">2,9 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--perec-kras" checked><span class="it">Перец болгарский красный <em>· 7 BYN</em> <em>· Ира Романова</em> <em>· где: Таборы</em> <em class="ok">· куплено</em></span><span class="q">0,7 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--pomidory"><span class="it">Помидоры <em>· 21,50 BYN</em> <em>· Ира Гутковская, Витя Кузнецов</em> <em>· где: Таборы</em></span><span class="q">4,3 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--cherri" checked><span class="it">Помидоры черри <em>· 5,40 BYN</em> <em>· Ира Романова</em> <em>· где: Таборы</em> <em class="ok">· куплено</em></span><span class="q">0,45 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--chesnok"><span class="it">Чеснок <em>· 5 BYN</em> <em>· Ира Гутковская</em> <em>· где: Таборы</em></span><span class="q">0,3 кг</span></label></li>
 </ul>
-<h4>Фрукты</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="bar--lajm"><span class="it">Лаймы <em>— Текила шоты; Безалкогольный лимонад</em> <em>· 15,93 × 1 = 15,93 BYN</em> <em>· где: Таборы</em></span><span class="q">1 кг</span></label></li>
-<li><label><input type="checkbox" data-k="bar--vinograd"><span class="it">Виноград без косточек <em>— Закуски к бару</em> <em>· 6 × 0,9 = 5,40 BYN</em> <em>· где: Таборы</em></span><span class="q">0,9 кг</span></label></li>
-<li><label><input type="checkbox" data-k="bar--banany"><span class="it">Бананы <em>— Закуски к бару</em> <em>· 4,99 × 1,8 = 8,98 BYN</em> <em>· где: Таборы</em></span><span class="q">1,8 кг</span></label></li>
-<li><label><input type="checkbox" data-k="bar--kivi"><span class="it">Киви <em>— Закуски к бару</em> <em>· 10,22 × 0,9 = 9,20 BYN</em> <em>· где: Таборы</em></span><span class="q">0,9 кг</span></label></li>
-<li><label><input type="checkbox" data-k="bar--yabloki-kras"><span class="it">Яблоки красные <em>— Закуски к бару</em> <em>· 3,91 × 1,8 = 7,04 BYN</em> <em>· где: Таборы</em></span><span class="q">1,8 кг</span></label></li>
-<li><label><input type="checkbox" data-k="bar--limony"><span class="it">Лимоны <em>— Закуски к бару</em> <em>· 8,84 × 1,4 = 12,38 BYN</em> <em>· где: Таборы</em></span><span class="q">1,4 кг</span></label></li>
+<h4>Фрукты<span class="own">147,74 BYN</span></h4><ul class="checklist">
+<li><label><input type="checkbox" data-k="all--apelsiny"><span class="it">Апельсины крупные <em>· 10 BYN</em> <em>· Ира Романова</em> <em>· где: Таборы</em></span><span class="q">5 шт</span></label></li>
+<li><label><input type="checkbox" data-k="all--arbuzy"><span class="it">Арбузы, ≈7 кг штука <em>· 25,20 BYN</em> <em>· Ира Гутковская</em> <em>· где: Таборы</em></span><span class="q">12,6 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--banany" checked><span class="it">Бананы <em>· 8,98 BYN</em> <em>· Ира Романова</em> <em>· где: Таборы</em> <em class="ok">· куплено</em></span><span class="q">1,8 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--vinograd"><span class="it">Виноград без косточек <em>· 48,60 BYN</em> <em>· Ира Романова, Ира Гутковская</em> <em>· где: Таборы</em> <em class="ok">· куплено 0,9 из 8,1 кг</em></span><span class="q">8,1 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--kivi" checked><span class="it">Киви <em>· 9,20 BYN</em> <em>· Ира Романова</em> <em>· где: Таборы</em> <em class="ok">· куплено</em></span><span class="q">0,9 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--lajm" checked><span class="it">Лаймы <em>· 15,93 BYN</em> <em>· Ира Романова</em> <em>· где: Таборы</em> <em class="ok">· куплено</em></span><span class="q">1 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--limony"><span class="it">Лимоны <em>· 16,80 BYN</em> <em>· Ира Романова, Ира Гутковская</em> <em>· где: Таборы</em> <em class="ok">· куплено 1,4 из 1,9 кг</em></span><span class="q">1,9 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--yabloki"><span class="it">Яблоки <em>· 6 BYN</em> <em>· Ира Романова</em> <em>· где: Таборы</em></span><span class="q">2 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--yabloki-kras" checked><span class="it">Яблоки красные <em>· 7,04 BYN</em> <em>· Ира Романова</em> <em>· где: Таборы</em> <em class="ok">· куплено</em></span><span class="q">1,8 кг</span></label></li>
 </ul>
-<h4>Бакалея и консервы</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="bar--perec-chern"><span class="it">Перец чёрный молотый <em>— Кровавая Мэри</em> <em>· есть, не покупаем</em></span><span class="q">1 пачка</span></label></li>
-<li><label><input type="checkbox" data-k="bar--sol"><span class="it">Соль <em>— Текила шоты</em> <em>· есть, не покупаем</em></span><span class="q">0,2 кг</span></label></li>
-<li><label><input type="checkbox" data-k="bar--masliny"><span class="it">Маслины чёрные, банка <em>— Закуски к бару</em> <em>· 6 × 2 = 12 BYN</em> <em>· где: Грошик</em></span><span class="q">2 банка</span></label></li>
-<li><label><input type="checkbox" data-k="bar--olivki"><span class="it">Оливки, банка <em>— Закуски к бару</em> <em>· 6 × 2 = 12 BYN</em> <em>· где: Грошик</em></span><span class="q">2 банка</span></label></li>
-<li><label><input type="checkbox" data-k="bar--tomaty-vyal"><span class="it">Томаты вяленые, банка <em>— Закуски к бару</em> <em>· есть, не покупаем</em></span><span class="q">2 банка</span></label></li>
-<li><label><input type="checkbox" data-k="bar--solomka"><span class="it">Соломка солёная <em>— Закуски к бару</em> <em>· 3 × 1 = 3 BYN</em> <em>· где: Грошик</em></span><span class="q">1 пачка</span></label></li>
-<li><label><input type="checkbox" data-k="bar--kreker-krug"><span class="it">Крекер круглый <em>— Закуски к бару</em> <em>· 3 × 2 = 6 BYN</em> <em>· где: Грошик</em></span><span class="q">2 пачка</span></label></li>
+<h4>Хлеб и выпечка<span class="own">68,92 BYN</span></h4><ul class="checklist">
+<li><label><input type="checkbox" data-k="all--baget"><span class="it">Багет <em>· 21,90 BYN</em> <em>· Ира Гутковская</em></span><span class="q">10 шт</span></label></li>
+<li><label><input type="checkbox" data-k="all--lavash"><span class="it">Лаваш тонкий армянский <em>· 4 BYN</em> <em>· Витя Кузнецов</em></span><span class="q">2 шт</span></label></li>
+<li><label><input type="checkbox" data-k="all--hleb-cherny"><span class="it">Хлеб чёрный, бородинский <em>· 43,02 BYN</em> <em>· Ира Гутковская</em></span><span class="q">18 буханка</span></label></li>
 </ul>
-<h4>Соусы</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="bar--tabasko"><span class="it">Табаско <em>— Кровавая Мэри</em> <em>· есть, не покупаем</em></span><span class="q">1 бут</span></label></li>
-<li><label><input type="checkbox" data-k="bar--vorchester"><span class="it">Вустерский соус <em>— Кровавая Мэри</em> <em>· есть, не покупаем</em></span><span class="q">1 бут</span></label></li>
+<h4>Бакалея и консервы<span class="own">51,02 BYN</span></h4><ul class="checklist">
+<li><label><input type="checkbox" data-k="all--griby-mar"><span class="it">Грибы маринованные <em>· есть, не покупаем</em> <em>· Ира Гутковская</em></span><span class="q">0,7 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--kapusta-kvash"><span class="it">Капуста квашеная <em>· есть, не покупаем</em> <em>· Ира Гутковская</em></span><span class="q">0,65 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--kreker-krug" checked><span class="it">Крекер круглый <em>· 6 BYN</em> <em>· Ира Романова</em> <em>· где: Грошик</em> <em class="ok">· куплено</em></span><span class="q">2 пачка</span></label></li>
+<li><label><input type="checkbox" data-k="all--masliny" checked><span class="it">Маслины чёрные, банка <em>· 12 BYN</em> <em>· Ира Романова</em> <em>· где: Грошик</em> <em class="ok">· куплено</em></span><span class="q">2 банка</span></label></li>
+<li><label><input type="checkbox" data-k="all--muka"><span class="it">Мука пшеничная <em>· 3,02 BYN</em> <em>· Света Ризмакова</em> <em>· где: Грошик</em></span><span class="q">1,8 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--ogurcy-sol"><span class="it">Огурцы солёные <em>· есть, не покупаем</em> <em>· Ира Гутковская</em></span><span class="q">1,4 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--olivki" checked><span class="it">Оливки, банка <em>· 12 BYN</em> <em>· Ира Романова</em> <em>· где: Грошик</em> <em class="ok">· куплено</em></span><span class="q">2 банка</span></label></li>
+<li><label><input type="checkbox" data-k="all--perec-chern" checked><span class="it">Перец чёрный молотый <em>· есть, не покупаем</em> <em>· Ира Романова</em> <em class="ok">· куплено</em></span><span class="q">1 пачка</span></label></li>
+<li><label><input type="checkbox" data-k="all--pomidory-mar"><span class="it">Помидоры маринованные <em>· есть, не покупаем</em> <em>· Ира Гутковская</em></span><span class="q">0,9 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--sahar"><span class="it">Сахар <em>· есть, не покупаем</em> <em>· Ира Гутковская</em></span><span class="q">2 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--solomka" checked><span class="it">Соломка солёная <em>· 3 BYN</em> <em>· Ира Романова</em> <em>· где: Грошик</em> <em class="ok">· куплено</em></span><span class="q">1 пачка</span></label></li>
+<li><label><input type="checkbox" data-k="all--sol" checked><span class="it">Соль <em>· есть, не покупаем</em> <em>· Ира Романова</em> <em class="ok">· куплено</em></span><span class="q">0,2 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--specii"><span class="it">Специи для шашлыка <em>· 15 BYN</em> <em>· Витя Кузнецов</em> <em>· где: Грошик</em></span><span class="q">1 набор</span></label></li>
+<li><label><input type="checkbox" data-k="all--tomaty-vyal"><span class="it">Томаты вяленые, банка <em>· есть, не покупаем</em> <em>· Ира Романова</em></span><span class="q">2 банка</span></label></li>
 </ul>
-<h4>Сладкое, чай, кофе</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="bar--marmelad"><span class="it">Мармелад «рыбки» <em>— Голубая лагуна</em> <em>· 10 × 1 = 10 BYN</em></span><span class="q">1 кг</span></label></li>
+<h4>Соусы<span class="own">40,38 BYN</span></h4><ul class="checklist">
+<li><label><input type="checkbox" data-k="all--vorchester" checked><span class="it">Вустерский соус <em>· есть, не покупаем</em> <em>· Ира Романова</em> <em class="ok">· куплено</em></span><span class="q">1 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--ketchup"><span class="it">Кетчуп <em>· 14 BYN</em> <em>· Ира Гутковская</em> <em>· где: Маяк</em></span><span class="q">2 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--majonez-pack"><span class="it">Майонез, пачка <em>· 14 BYN</em> <em>· Ира Гутковская</em> <em>· где: Маяк</em></span><span class="q">2 пачка</span></label></li>
+<li><label><input type="checkbox" data-k="all--tabasko" checked><span class="it">Табаско <em>· есть, не покупаем</em> <em>· Ира Романова</em> <em class="ok">· куплено</em></span><span class="q">1 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--hren-kg"><span class="it">Хрен <em>· 6,30 BYN</em> <em>· Ира Гутковская</em></span><span class="q">0,35 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--hren"><span class="it">Хрен, банка <em>· 6,08 BYN</em> <em>· Ира Гутковская</em></span><span class="q">2 банка</span></label></li>
 </ul>
-<h4>Алкоголь</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="bar--vodka"><span class="it">Водка 0,5 л <em>— Кровавая Мэри; Голубая лагуна; Новый русский</em> <em>· 13,80 × 7 = 96,60 BYN</em></span><span class="q">7 бут</span></label></li>
-<li><label><input type="checkbox" data-k="bar--tekila"><span class="it">Текила 0,7 л <em>— Текила шоты</em> <em>· 18 × 2 = 36 BYN</em></span><span class="q">2 бут</span></label></li>
-<li><label><input type="checkbox" data-k="bar--blue-curacao"><span class="it">Блю кюрасао 1 л <em>— Голубая лагуна</em> <em>· 11,50 × 1 = 11,50 BYN</em></span><span class="q">1 бут</span></label></li>
-<li><label><input type="checkbox" data-k="bar--liker-kofe"><span class="it">Кофейный ликёр 0,7 л <em>— Новый русский</em> <em>· 18 × 1 = 18 BYN</em></span><span class="q">1 бут</span></label></li>
+<h4>Сладкое, чай, кофе<span class="own">152,60 BYN</span></h4><ul class="checklist">
+<li><label><input type="checkbox" data-k="all--varene"><span class="it">Варенье, банка ≈0,5 кг <em>· есть, не покупаем</em> <em>· Ира Гутковская</em></span><span class="q">4 банка</span></label></li>
+<li><label><input type="checkbox" data-k="all--konfety"><span class="it">Конфеты <em>· 18 BYN</em> <em>· Ира Гутковская</em></span><span class="q">1,8 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--marmelad" checked><span class="it">Мармелад «рыбки» <em>· 10 BYN</em> <em>· Ира Романова</em> <em class="ok">· куплено</em></span><span class="q">1 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--pechene"><span class="it">Печенье <em>· 16,20 BYN</em> <em>· Ира Гутковская</em></span><span class="q">2,7 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--pryaniki"><span class="it">Пряники <em>· 8,40 BYN</em> <em>· Ира Гутковская</em></span><span class="q">1,4 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--chaj-kofe"><span class="it">Чай и кофе <em>· 100 BYN</em> <em>· Ира Гутковская</em></span><span class="q">1 набор</span></label></li>
 </ul>
-<h4>Безалкогольное</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="bar--tom-sok"><span class="it">Томатный сок 2 л <em>— Кровавая Мэри</em> <em>· 4,50 × 2 = 9 BYN</em> <em>· где: Грошик</em></span><span class="q">2 бут</span></label></li>
-<li><label><input type="checkbox" data-k="bar--sprajt"><span class="it">Спрайт 2 л <em>— Голубая лагуна; Безалкогольный лимонад</em> <em>· 4,50 × 4 = 18 BYN</em> <em>· где: Грошик</em></span><span class="q">4 бут</span></label></li>
-<li><label><input type="checkbox" data-k="bar--led"><span class="it">Лёд пищевой <em>— Лёд и подача</em> <em>· есть, не покупаем</em></span><span class="q">15 кг</span></label></li>
+<h4>Алкоголь<span class="own">2 473,21 BYN</span></h4><ul class="checklist">
+<li><label><input type="checkbox" data-k="all--blue-curacao" checked><span class="it">Блю кюрасао 1 л <em>· 11,50 BYN</em> <em>· Ира Романова</em> <em class="ok">· куплено</em></span><span class="q">1 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--vino-bel"><span class="it">Вино белое 0,75 л <em>· 480 BYN</em> <em>· Ира Гутковская</em></span><span class="q">30 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--vino-punsh" checked><span class="it">Вино белое для пунша <em>· 100 BYN</em> <em>· Ира Романова</em> <em class="ok">· куплено</em></span><span class="q">10 л</span></label></li>
+<li><label><input type="checkbox" data-k="all--vino-kras" checked><span class="it">Вино красное 0,75 л <em>· 96 BYN</em> <em>· Ира Гутковская</em> <em class="ok">· куплено</em></span><span class="q">6 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--vino-roz" checked><span class="it">Вино розовое 0,75 л <em>· 384 BYN</em> <em>· Ира Гутковская</em> <em class="ok">· куплено</em></span><span class="q">24 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--viski" checked><span class="it">Виски 0,7 л <em>· 135 BYN</em> <em>· Ира Гутковская</em> <em class="ok">· куплено</em></span><span class="q">3 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--vodka"><span class="it">Водка 0,5 л <em>· 690 BYN</em> <em>· Ира Романова, Ира Гутковская</em> <em class="ok">· куплено 7 из 50 бут</em></span><span class="q">50 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--igristoe" checked><span class="it">Игристое 0,75 л <em>· 144 BYN</em> <em>· Ира Гутковская</em> <em class="ok">· куплено</em></span><span class="q">12 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--liker-kofe" checked><span class="it">Кофейный ликёр 0,7 л <em>· 18 BYN</em> <em>· Ира Романова</em> <em class="ok">· куплено</em></span><span class="q">1 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--nastojka-vish" checked><span class="it">Настойка вишнёвая 0,5 л <em>· 48 BYN</em> <em>· Ира Гутковская</em> <em class="ok">· куплено</em></span><span class="q">4 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--pivo-l"><span class="it">Пиво <em>· есть, не покупаем</em> <em>· Ира Гутковская</em></span><span class="q">45 л</span></label></li>
+<li><label><input type="checkbox" data-k="all--pivo"><span class="it">Пиво 0,5 л <em>· 260,71 BYN</em> <em>· Макс Богданов</em></span><span class="q">100 банка</span></label></li>
+<li><label><input type="checkbox" data-k="all--samogon"><span class="it">Самогон 0,5 л <em>· 70 BYN</em> <em>· Ира Гутковская</em></span><span class="q">10 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--tekila" checked><span class="it">Текила 0,7 л <em>· 36 BYN</em> <em>· Ира Романова</em> <em class="ok">· куплено</em></span><span class="q">2 бут</span></label></li>
 </ul>
-<h4>Одноразовая посуда</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="bar--rumki"><span class="it">Рюмки одноразовые <em>— Посуда на бар</em> <em>· 0,20 × 100 = 20 BYN</em> <em>· закупает Антон Дашкевич</em> <em>· где: Антон Дашкевич</em></span><span class="q">100 шт</span></label></li>
-<li><label><input type="checkbox" data-k="bar--stakany-02"><span class="it">Стаканы пластиковые 0,2 л <em>— Посуда на бар</em> <em>· 0,05 × 100 = 5,33 BYN</em> <em>· закупает Антон Дашкевич</em> <em>· где: Антон Дашкевич</em></span><span class="q">100 шт</span></label></li>
-<li><label><input type="checkbox" data-k="bar--trubochki"><span class="it">Трубочки для коктейлей, упаковка 100 шт <em>— Посуда на бар</em> <em>· есть, не покупаем</em> <em>· закупает Антон Дашкевич</em></span><span class="q">1 уп</span></label></li>
-<li><label><input type="checkbox" data-k="bar--shpazhki-dekor"><span class="it">Шпажки для украшения коктейлей <em>— Посуда на бар</em> <em>· есть, не покупаем</em> <em>· закупает Антон Дашкевич</em></span><span class="q">1 уп</span></label></li>
+<h4>Безалкогольное<span class="own">397,80 BYN</span></h4><ul class="checklist">
+<li><label><input type="checkbox" data-k="all--voda-negaz" checked><span class="it">Вода негазированная 1,5 л <em>· 6 BYN</em> <em>· Ира Гутковская</em> <em>· где: Грошик</em> <em class="ok">· куплено</em></span><span class="q">6 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--kola-15" checked><span class="it">Кола 1,5 л <em>· 10,14 BYN</em> <em>· Ира Гутковская</em> <em>· где: Грошик</em> <em class="ok">· куплено</em></span><span class="q">3 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--led"><span class="it">Лёд пищевой <em>· есть, не покупаем</em> <em>· Ира Романова, Ира Гутковская</em> <em class="ok">· куплено 15 из 20 кг</em></span><span class="q">20 кг</span></label></li>
+<li><label><input type="checkbox" data-k="all--voda-komn" checked><span class="it">Минералка в номера 1,5 л <em>· 63 BYN</em> <em>· Ира Гутковская</em> <em>· где: Грошик</em> <em class="ok">· куплено</em></span><span class="q">42 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--mineralka" checked><span class="it">Минеральная газированная 1,5 л <em>· 54 BYN</em> <em>· Ира Гутковская</em> <em>· где: Грошик</em> <em class="ok">· куплено</em></span><span class="q">36 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--pepsi" checked><span class="it">Пепси 1,5 л <em>· 40,56 BYN</em> <em>· Ира Гутковская</em> <em>· где: Грошик</em> <em class="ok">· куплено</em></span><span class="q">12 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--bezalk-pivo" checked><span class="it">Пиво безалкогольное 0,5 л <em>· 60 BYN</em> <em>· Ира Гутковская</em> <em>· где: Грошик</em> <em class="ok">· куплено</em></span><span class="q">24 банка</span></label></li>
+<li><label><input type="checkbox" data-k="all--sok"><span class="it">Сок 2 л: апельсин, яблоко, вишня <em>· 73,60 BYN</em> <em>· Ира Гутковская</em> <em>· где: Грошик</em></span><span class="q">16 пакет</span></label></li>
+<li><label><input type="checkbox" data-k="all--sok-vinograd"><span class="it">Сок виноградный 2 л <em>· 23 BYN</em> <em>· Ира Романова</em> <em>· где: Грошик</em></span><span class="q">5 пакет</span></label></li>
+<li><label><input type="checkbox" data-k="all--sprajt" checked><span class="it">Спрайт 2 л <em>· 58,50 BYN</em> <em>· Ира Романова, Ира Гутковская</em> <em>· где: Грошик</em> <em class="ok">· куплено</em></span><span class="q">13 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--tom-sok" checked><span class="it">Томатный сок 2 л <em>· 9 BYN</em> <em>· Ира Романова</em> <em>· где: Грошик</em> <em class="ok">· куплено</em></span><span class="q">2 бут</span></label></li>
 </ul>
-<h3>2. Докорм: закуски, хлеб, завтраки<span class="own">— Ира Гутковская · 879,63 BYN за 31 из 31</span></h3>
-<h4>Мясо, рыба, колбасы</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="dokorm--ryba-ss"><span class="it">Сельдь филе слабосолёная «Матиас» <em>— Блинчики с рыбкой, плавленым сыром и укропом</em> <em>· 21,28 × 1,2 = 25,54 BYN</em> <em>· закупает Света Ризмакова</em></span><span class="q">1,2 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--myaso-assorti"><span class="it">Мясное ассорти: копчёная и копчёно-варёная колбаса <em>— Мясная нарезка; Мясная нарезка с грудинкой</em> <em>· 28 × 11,1 = 310,80 BYN</em> <em>· где: Грошик</em></span><span class="q">11,1 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--vetchina"><span class="it">Ветчина, тонкая нарезка <em>— Рулетики из ветчины с сыром</em> <em>· 28 × 2,3 = 64,40 BYN</em> <em>· где: Грошик</em></span><span class="q">2,3 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--grudinka"><span class="it">Грудинка копчёная <em>— Мясная нарезка с грудинкой</em> <em>· 28 × 0,9 = 25,20 BYN</em></span><span class="q">0,9 кг</span></label></li>
+<h4>Снеки<span class="own">200 BYN</span></h4><ul class="checklist">
+<li><label><input type="checkbox" data-k="all--orehi-suhariki"><span class="it">Орешки и сухарики <em>· 100 BYN</em> <em>· Макс Богданов</em></span><span class="q">1 набор</span></label></li>
+<li><label><input type="checkbox" data-k="all--ryba-vyal"><span class="it">Рыба сухая вяленая <em>· 100 BYN</em> <em>· Макс Богданов</em></span><span class="q">1 набор</span></label></li>
 </ul>
-<h4>Сыр, молочное, яйца</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="dokorm--syr-tverd"><span class="it">Сыр полутвёрдый для начинок <em>— Помидоры с сыром и чесноком; Рулетики из ветчины с сыром</em> <em>· 22 × 2,2 = 48,40 BYN</em> <em>· где: Маяк</em></span><span class="q">2,2 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--majonez"><span class="it">Майонез <em>— Помидоры с сыром и чесноком; Рулетики из ветчины с сыром</em> <em>· 7 × 0,85 = 5,95 BYN</em> <em>· где: Маяк</em></span><span class="q">0,85 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--moloko-bliny"><span class="it">Молоко на блины <em>— Блинчики с рыбкой, плавленым сыром и укропом</em> <em>· 2,74 × 2,7 = 7,40 BYN</em> <em>· закупает Света Ризмакова</em></span><span class="q">2,7 л</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--yajca"><span class="it">Яйца <em>— Блинчики с рыбкой, плавленым сыром и укропом</em> <em>· 0,42 × 4 = 1,70 BYN</em> <em>· закупает Света Ризмакова</em></span><span class="q">4 шт</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--syr-plavl"><span class="it">Сыр плавленый сливочный <em>— Блинчики с рыбкой, плавленым сыром и укропом</em> <em>· 32,47 × 1,1 = 35,72 BYN</em> <em>· закупает Света Ризмакова</em> <em>· где: Маяк</em></span><span class="q">1,1 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--sgushchenka"><span class="it">Сгущённое молоко, банка 380 г <em>— Сгущёнка и молоко</em> <em>· 4,57 × 2 = 9,14 BYN</em></span><span class="q">2 банка</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--moloko"><span class="it">Молоко <em>— Сгущёнка и молоко; Чай и кофе</em> <em>· 2,74 × 11 = 30,14 BYN</em></span><span class="q">11 л</span></label></li>
+<h4>Одноразовая посуда<span class="own">99,84 BYN</span></h4><ul class="checklist">
+<li><label><input type="checkbox" data-k="all--vilki"><span class="it">Вилки одноразовые, упаковка 100 шт <em>· есть, не покупаем</em> <em>· Антон Дашкевич</em></span><span class="q">3 уп</span></label></li>
+<li><label><input type="checkbox" data-k="all--folga-kont"><span class="it">Контейнеры фольгированные с крышкой, ≈2 л <em>· 5,10 BYN</em> <em>· Антон Дашкевич</em> <em>· где: Антон Дашкевич</em></span><span class="q">10 шт</span></label></li>
+<li><label><input type="checkbox" data-k="all--lozhki"><span class="it">Ложки одноразовые <em>· есть, не покупаем</em> <em>· Антон Дашкевич</em></span><span class="q">80 шт</span></label></li>
+<li><label><input type="checkbox" data-k="all--nozhi"><span class="it">Ножи одноразовые, упаковка 100 шт <em>· есть, не покупаем</em> <em>· Антон Дашкевич</em></span><span class="q">1 уп</span></label></li>
+<li><label><input type="checkbox" data-k="all--rumki" checked><span class="it">Рюмки одноразовые <em>· 20 BYN</em> <em>· Антон Дашкевич</em> <em>· где: Антон Дашкевич</em> <em class="ok">· куплено</em></span><span class="q">100 шт</span></label></li>
+<li><label><input type="checkbox" data-k="all--stakany-02" checked><span class="it">Стаканы пластиковые 0,2 л <em>· 21,32 BYN</em> <em>· Антон Дашкевич</em> <em>· где: Антон Дашкевич</em> <em class="ok">· куплено</em></span><span class="q">400 шт</span></label></li>
+<li><label><input type="checkbox" data-k="all--stakany-05" checked><span class="it">Стаканы пластиковые 0,5 л <em>· 35,06 BYN</em> <em>· Антон Дашкевич</em> <em>· где: Антон Дашкевич</em> <em class="ok">· куплено</em></span><span class="q">200 шт</span></label></li>
+<li><label><input type="checkbox" data-k="all--tarelki-glub"><span class="it">Тарелки глубокие <em>· есть, не покупаем</em> <em>· Антон Дашкевич</em></span><span class="q">20 шт</span></label></li>
+<li><label><input type="checkbox" data-k="all--tarelki-sup" checked><span class="it">Тарелки глубокие вспененные под суп <em>· 18,36 BYN</em> <em>· Антон Дашкевич</em> <em>· где: Антон Дашкевич</em> <em class="ok">· куплено</em></span><span class="q">80 шт</span></label></li>
+<li><label><input type="checkbox" data-k="all--tarelki-sht"><span class="it">Тарелки одноразовые <em>· есть, не покупаем</em> <em>· Антон Дашкевич</em></span><span class="q">200 шт</span></label></li>
+<li><label><input type="checkbox" data-k="all--tarelki-plosk"><span class="it">Тарелки плоские <em>· есть, не покупаем</em> <em>· Антон Дашкевич</em></span><span class="q">20 шт</span></label></li>
+<li><label><input type="checkbox" data-k="all--trubochki" checked><span class="it">Трубочки для коктейлей, упаковка 100 шт <em>· есть, не покупаем</em> <em>· Антон Дашкевич</em> <em class="ok">· куплено</em></span><span class="q">1 уп</span></label></li>
+<li><label><input type="checkbox" data-k="all--shpazhki-dekor" checked><span class="it">Шпажки для украшения коктейлей <em>· есть, не покупаем</em> <em>· Антон Дашкевич</em> <em class="ok">· куплено</em></span><span class="q">1 уп</span></label></li>
+<li><label><input type="checkbox" data-k="all--shpazhki"><span class="it">Шпажки, упаковка 100 шт <em>· есть, не покупаем</em> <em>· Антон Дашкевич</em></span><span class="q">2 уп</span></label></li>
 </ul>
-<h4>Овощи и зелень</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="dokorm--pomidory"><span class="it">Помидоры <em>— Помидоры с сыром и чесноком</em> <em>· 5 × 2,9 = 14,50 BYN</em> <em>· где: Таборы</em></span><span class="q">2,9 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--chesnok"><span class="it">Чеснок <em>— Помидоры с сыром и чесноком; Рулетики из ветчины с сыром; Мясная нарезка с грудинкой</em> <em>· 16,67 × 0,3 = 5 BYN</em> <em>· где: Таборы</em></span><span class="q">0,3 кг</span></label></li>
+<h4>Хозяйственное<span class="own">112,55 BYN</span></h4><ul class="checklist">
+<li><label><input type="checkbox" data-k="all--polotenca"><span class="it">Бумажные полотенца <em>· 11,72 BYN</em> <em>· Ира Гутковская</em> <em>· где: Антон Дашкевич</em></span><span class="q">4 рулон</span></label></li>
+<li><label><input type="checkbox" data-k="all--vlazhnye"><span class="it">Влажные салфетки <em>· 17,15 BYN</em> <em>· Ира Гутковская</em> <em>· где: Антон Дашкевич</em></span><span class="q">5 уп</span></label></li>
+<li><label><input type="checkbox" data-k="all--mylo"><span class="it">Жидкое мыло <em>· есть, не покупаем</em> <em>· Ира Гутковская</em></span><span class="q">4 шт</span></label></li>
+<li><label><input type="checkbox" data-k="all--kontejnery"><span class="it">Контейнеры с крышкой 1–2 л под заготовки <em>· есть, не покупаем</em> <em>· Ира Гутковская</em></span><span class="q">20 шт</span></label></li>
+<li><label><input type="checkbox" data-k="all--meshki"><span class="it">Мешки для мусора 120 л, рулон <em>· есть, не покупаем</em> <em>· Ира Гутковская</em></span><span class="q">3 рулон</span></label></li>
+<li><label><input type="checkbox" data-k="all--osvezh"><span class="it">Освежитель воздуха <em>· 16 BYN</em> <em>· Ира Гутковская</em> <em>· где: Антон Дашкевич</em></span><span class="q">4 шт</span></label></li>
+<li><label><input type="checkbox" data-k="all--perchatki"><span class="it">Перчатки одноразовые, упаковка 100 шт <em>· есть, не покупаем</em> <em>· Ира Гутковская</em></span><span class="q">1 уп</span></label></li>
+<li><label><input type="checkbox" data-k="all--plenka"><span class="it">Плёнка пищевая <em>· есть, не покупаем</em> <em>· Ира Гутковская</em></span><span class="q">3 рулон</span></label></li>
+<li><label><input type="checkbox" data-k="all--salfetki"><span class="it">Салфетки бумажные, упаковка 100 шт <em>· 18 BYN</em> <em>· Ира Гутковская</em> <em>· где: Антон Дашкевич</em></span><span class="q">9 уп</span></label></li>
+<li><label><input type="checkbox" data-k="all--skaterti"><span class="it">Скатерти одноразовые 120×220 <em>· есть, не покупаем</em> <em>· Ира Гутковская</em></span><span class="q">12 шт</span></label></li>
+<li><label><input type="checkbox" data-k="all--skatert-rulon"><span class="it">Скатерть одноразовая, рулон <em>· есть, не покупаем</em> <em>· Антон Дашкевич</em></span><span class="q">1 рулон</span></label></li>
+<li><label><input type="checkbox" data-k="all--tkan-print"><span class="it">Ткань с леопардовым или зебровым принтом на дорожки <em>· 30 BYN</em> <em>· Ира Гутковская</em></span><span class="q">8 м</span></label></li>
+<li><label><input type="checkbox" data-k="all--tualet"><span class="it">Туалетная бумага <em>· 19,68 BYN</em> <em>· Ира Гутковская</em> <em>· где: Антон Дашкевич</em></span><span class="q">24 рулон</span></label></li>
+<li><label><input type="checkbox" data-k="all--folga"><span class="it">Фольга <em>· есть, не покупаем</em> <em>· Ира Гутковская</em></span><span class="q">2 рулон</span></label></li>
 </ul>
-<h4>Фрукты</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="dokorm--vinograd"><span class="it">Виноград без косточек <em>— Виноград на шпажках; Фрукты</em> <em>· 6 × 7,2 = 43,20 BYN</em> <em>· где: Таборы</em></span><span class="q">7,2 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--arbuzy"><span class="it">Арбузы, ≈7 кг штука <em>— Фрукты</em> <em>· 2 × 12,6 = 25,20 BYN</em> <em>· где: Таборы</em></span><span class="q">12,6 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--limony"><span class="it">Лимоны <em>— Чай и кофе</em> <em>· 8,84 × 0,5 = 4,42 BYN</em> <em>· где: Таборы</em></span><span class="q">0,5 кг</span></label></li>
+<h4>Мангал<span class="own">57,67 BYN</span></h4><ul class="checklist">
+<li><label><input type="checkbox" data-k="all--rozzhig"><span class="it">Жидкость для розжига <em>· 15,42 BYN</em> <em>· Витя Кузнецов</em> <em>· где: Витя, опт</em></span><span class="q">2 бут</span></label></li>
+<li><label><input type="checkbox" data-k="all--ugol"><span class="it">Уголь древесный, мешок 5 кг <em>· 42,25 BYN</em> <em>· Витя Кузнецов</em> <em>· где: Витя, опт</em></span><span class="q">5 мешок</span></label></li>
 </ul>
-<h4>Хлеб и выпечка</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="dokorm--hleb-cherny"><span class="it">Хлеб чёрный, бородинский <em>— Хлеб и соусы</em> <em>· 2,39 × 18 = 43,02 BYN</em></span><span class="q">18 буханка</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--baget"><span class="it">Багет <em>— Хлеб и соусы</em> <em>· 2,19 × 10 = 21,90 BYN</em></span><span class="q">10 шт</span></label></li>
+<h4>Оформление<span class="own">30 BYN</span></h4><ul class="checklist">
+<li><label><input type="checkbox" data-k="all--akvagrim"><span class="it">Аквагрим <em>· 15 BYN</em> <em>· Ира Гутковская</em></span><span class="q">1 набор</span></label></li>
+<li><label><input type="checkbox" data-k="all--kraska-zoloto"><span class="it">Баллончик с золотой краской <em>· 15 BYN</em> <em>· Ира Гутковская</em></span><span class="q">1 шт</span></label></li>
 </ul>
-<h4>Бакалея и консервы</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="dokorm--muka"><span class="it">Мука пшеничная <em>— Блинчики с рыбкой, плавленым сыром и укропом</em> <em>· 1,68 × 1,8 = 3,02 BYN</em> <em>· закупает Света Ризмакова</em> <em>· где: Грошик</em></span><span class="q">1,8 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--ogurcy-sol"><span class="it">Огурцы солёные <em>— Соленья</em> <em>· есть, не покупаем</em></span><span class="q">1,4 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--pomidory-mar"><span class="it">Помидоры маринованные <em>— Соленья</em> <em>· есть, не покупаем</em></span><span class="q">0,9 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--griby-mar"><span class="it">Грибы маринованные <em>— Соленья</em> <em>· есть, не покупаем</em></span><span class="q">0,7 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--kapusta-kvash"><span class="it">Капуста квашеная <em>— Соленья</em> <em>· есть, не покупаем</em></span><span class="q">0,65 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--sahar"><span class="it">Сахар <em>— Чай и кофе</em> <em>· есть, не покупаем</em></span><span class="q">2 кг</span></label></li>
-</ul>
-<h4>Соусы</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="dokorm--hren-kg"><span class="it">Хрен <em>— Хлеб и соусы</em> <em>· 18,01 × 0,35 = 6,30 BYN</em></span><span class="q">0,35 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--hren"><span class="it">Хрен, банка <em>— Хлеб и соусы</em> <em>· 3,04 × 2 = 6,08 BYN</em></span><span class="q">2 банка</span></label></li>
-</ul>
-<h4>Сладкое, чай, кофе</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="dokorm--varene"><span class="it">Варенье, банка ≈0,5 кг <em>— К оладьям: варенье</em> <em>· есть, не покупаем</em></span><span class="q">4 банка</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--chaj-kofe"><span class="it">Чай и кофе <em>— Чай и кофе</em> <em>· 100 × 1 = 100 BYN</em></span><span class="q">1 набор</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--pechene"><span class="it">Печенье <em>— Сладкое к завтракам</em> <em>· 6 × 2,7 = 16,20 BYN</em></span><span class="q">2,7 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--pryaniki"><span class="it">Пряники <em>— Сладкое к завтракам</em> <em>· 6 × 1,4 = 8,40 BYN</em></span><span class="q">1,4 кг</span></label></li>
-<li><label><input type="checkbox" data-k="dokorm--konfety"><span class="it">Конфеты <em>— Сладкое к завтракам</em> <em>· 10 × 1,8 = 18 BYN</em></span><span class="q">1,8 кг</span></label></li>
-</ul>
-<h3>3. Оснащение<span class="own">— Ира Гутковская · 165,35 BYN за 18 из 18</span></h3>
-<h4>Одноразовая посуда</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="osn--vilki"><span class="it">Вилки одноразовые, упаковка 100 шт <em>— Одноразовая посуда</em> <em>· есть, не покупаем</em> <em>· закупает Антон Дашкевич</em></span><span class="q">3 уп</span></label></li>
-<li><label><input type="checkbox" data-k="osn--nozhi"><span class="it">Ножи одноразовые, упаковка 100 шт <em>— Одноразовая посуда</em> <em>· есть, не покупаем</em> <em>· закупает Антон Дашкевич</em></span><span class="q">1 уп</span></label></li>
-<li><label><input type="checkbox" data-k="osn--shpazhki"><span class="it">Шпажки, упаковка 100 шт <em>— Одноразовая посуда</em> <em>· есть, не покупаем</em> <em>· закупает Антон Дашкевич</em></span><span class="q">2 уп</span></label></li>
-</ul>
-<h4>Хозяйственное</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="osn--salfetki"><span class="it">Салфетки бумажные, упаковка 100 шт <em>— Салфетки, туалеты, мусор</em> <em>· 2 × 6 = 12 BYN</em> <em>· где: Антон Дашкевич</em></span><span class="q">6 уп</span></label></li>
-<li><label><input type="checkbox" data-k="osn--tualet"><span class="it">Туалетная бумага <em>— Салфетки, туалеты, мусор</em> <em>· 0,82 × 24 = 19,68 BYN</em> <em>· где: Антон Дашкевич</em></span><span class="q">24 рулон</span></label></li>
-<li><label><input type="checkbox" data-k="osn--osvezh"><span class="it">Освежитель воздуха <em>— Салфетки, туалеты, мусор</em> <em>· 4 × 4 = 16 BYN</em> <em>· где: Антон Дашкевич</em></span><span class="q">4 шт</span></label></li>
-<li><label><input type="checkbox" data-k="osn--mylo"><span class="it">Жидкое мыло <em>— Салфетки, туалеты, мусор</em> <em>· есть, не покупаем</em></span><span class="q">4 шт</span></label></li>
-<li><label><input type="checkbox" data-k="osn--meshki"><span class="it">Мешки для мусора 120 л, рулон <em>— Салфетки, туалеты, мусор</em> <em>· есть, не покупаем</em></span><span class="q">3 рулон</span></label></li>
-<li><label><input type="checkbox" data-k="osn--skaterti"><span class="it">Скатерти одноразовые 120×220 <em>— Оформление столов</em> <em>· есть, не покупаем</em></span><span class="q">8 шт</span></label></li>
-<li><label><input type="checkbox" data-k="osn--tkan-print"><span class="it">Ткань с леопардовым или зебровым принтом на дорожки <em>— Оформление столов</em> <em>· 3,75 × 8 = 30 BYN</em></span><span class="q">8 м</span></label></li>
-<li><label><input type="checkbox" data-k="osn--plenka"><span class="it">Плёнка пищевая <em>— Под заготовки</em> <em>· есть, не покупаем</em></span><span class="q">3 рулон</span></label></li>
-<li><label><input type="checkbox" data-k="osn--folga"><span class="it">Фольга <em>— Под заготовки</em> <em>· есть, не покупаем</em></span><span class="q">2 рулон</span></label></li>
-<li><label><input type="checkbox" data-k="osn--kontejnery"><span class="it">Контейнеры с крышкой 1–2 л под заготовки <em>— Под заготовки</em> <em>· есть, не покупаем</em></span><span class="q">20 шт</span></label></li>
-<li><label><input type="checkbox" data-k="osn--perchatki"><span class="it">Перчатки одноразовые, упаковка 100 шт <em>— Под заготовки</em> <em>· есть, не покупаем</em></span><span class="q">1 уп</span></label></li>
-</ul>
-<h4>Мангал</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="osn--ugol"><span class="it">Уголь древесный, мешок 5 кг <em>— Мангальная зона</em> <em>· 8,45 × 5 = 42,25 BYN</em> <em>· закупает Витя Кузнецов</em> <em>· где: Витя, опт</em></span><span class="q">5 мешок</span></label></li>
-<li><label><input type="checkbox" data-k="osn--rozzhig"><span class="it">Жидкость для розжига <em>— Мангальная зона</em> <em>· 7,71 × 2 = 15,42 BYN</em> <em>· закупает Витя Кузнецов</em> <em>· где: Витя, опт</em></span><span class="q">2 бут</span></label></li>
-</ul>
-<h4>Оформление</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="osn--akvagrim"><span class="it">Аквагрим <em>— Аквагрим и золотая краска</em> <em>· 15 × 1 = 15 BYN</em></span><span class="q">1 набор</span></label></li>
-<li><label><input type="checkbox" data-k="osn--kraska-zoloto"><span class="it">Баллончик с золотой краской <em>— Аквагрим и золотая краска</em> <em>· 15 × 1 = 15 BYN</em></span><span class="q">1 шт</span></label></li>
-</ul>
-<h3>4. Дневная мангальная зона<span class="own">— Витя Кузнецов · 487,12 BYN за 23 из 23</span></h3>
-<h4>Мясо, рыба, колбасы</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="mangal--svin-okorok"><span class="it">Свиной окорок без кости <em>— Шашлык из свинины</em> <em>· 10 × 12 = 120 BYN</em> <em>· где: Витя, опт</em></span><span class="q">12 кг</span></label></li>
-<li><label><input type="checkbox" data-k="mangal--kolbaski"><span class="it">Колбаски для гриля <em>— Колбаски на гриле</em> <em>· 14 × 8 = 112 BYN</em> <em>· где: Витя, опт</em></span><span class="q">8 кг</span></label></li>
-<li><label><input type="checkbox" data-k="mangal--kurica-gril"><span class="it">Курица для гриля <em>— Курица на гриле</em> <em>· 10 × 6 = 60 BYN</em> <em>· где: Витя, опт</em></span><span class="q">6 кг</span></label></li>
-</ul>
-<h4>Овощи и зелень</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="mangal--luk"><span class="it">Лук репчатый <em>— Шашлык из свинины; Курица на гриле; Закуски к мангалу</em> <em>· 2 × 5,8 = 11,60 BYN</em> <em>· где: Таборы</em></span><span class="q">5,8 кг</span></label></li>
-<li><label><input type="checkbox" data-k="mangal--ovoshi-gril"><span class="it">Овощи для гриля: перец, баклажаны, цуккини, шампиньоны крупные <em>— Овощи и грибы на гриле</em> <em>· 4 × 4,5 = 18 BYN</em> <em>· где: Таборы</em></span><span class="q">4,5 кг</span></label></li>
-<li><label><input type="checkbox" data-k="mangal--kukuruza"><span class="it">Кукуруза в початках <em>— Овощи и грибы на гриле</em> <em>· 2 × 5,4 = 10,80 BYN</em> <em>· где: Таборы</em></span><span class="q">5,4 кг</span></label></li>
-<li><label><input type="checkbox" data-k="mangal--ogurcy"><span class="it">Огурцы свежие <em>— Закуски к мангалу</em> <em>· 3 × 1,4 = 4,20 BYN</em> <em>· где: Таборы</em></span><span class="q">1,4 кг</span></label></li>
-<li><label><input type="checkbox" data-k="mangal--pomidory"><span class="it">Помидоры <em>— Закуски к мангалу</em> <em>· 5 × 1,4 = 7 BYN</em> <em>· где: Таборы</em></span><span class="q">1,4 кг</span></label></li>
-<li><label><input type="checkbox" data-k="mangal--zelen"><span class="it">Зелень: укроп, петрушка, зелёный лук <em>— Закуски к мангалу</em> <em>· 2 × 5 = 10 BYN</em> <em>· где: Таборы</em></span><span class="q">5 пучок</span></label></li>
-</ul>
-<h4>Хлеб и выпечка</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="mangal--lavash"><span class="it">Лаваш тонкий армянский <em>— Закуски к мангалу</em> <em>· 2 × 2 = 4 BYN</em></span><span class="q">2 шт</span></label></li>
-</ul>
-<h4>Бакалея и консервы</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="mangal--specii"><span class="it">Специи для шашлыка <em>— Специи</em> <em>· 15 × 1 = 15 BYN</em> <em>· где: Грошик</em></span><span class="q">1 набор</span></label></li>
-</ul>
-<h4>Соусы</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="mangal--majonez-pack"><span class="it">Майонез, пачка <em>— Соусы к мангалу</em> <em>· 7 × 2 = 14 BYN</em> <em>· закупает Ира Гутковская</em> <em>· где: Маяк</em></span><span class="q">2 пачка</span></label></li>
-<li><label><input type="checkbox" data-k="mangal--ketchup"><span class="it">Кетчуп <em>— Соусы к мангалу</em> <em>· 7 × 2 = 14 BYN</em> <em>· закупает Ира Гутковская</em> <em>· где: Маяк</em></span><span class="q">2 бут</span></label></li>
-</ul>
-<h4>Одноразовая посуда</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="mangal--tarelki-sht"><span class="it">Тарелки одноразовые <em>— Посуда и расходники на шашлык и обед</em> <em>· есть, не покупаем</em> <em>· закупает Антон Дашкевич</em></span><span class="q">200 шт</span></label></li>
-<li><label><input type="checkbox" data-k="mangal--tarelki-sup"><span class="it">Тарелки глубокие вспененные под суп <em>— Посуда и расходники на шашлык и обед</em> <em>· 0,23 × 80 = 18,36 BYN</em> <em>· закупает Антон Дашкевич</em> <em>· где: Антон Дашкевич</em></span><span class="q">80 шт</span></label></li>
-<li><label><input type="checkbox" data-k="mangal--lozhki"><span class="it">Ложки одноразовые <em>— Посуда и расходники на шашлык и обед</em> <em>· есть, не покупаем</em> <em>· закупает Антон Дашкевич</em></span><span class="q">80 шт</span></label></li>
-<li><label><input type="checkbox" data-k="mangal--stakany-02"><span class="it">Стаканы пластиковые 0,2 л <em>— Посуда и расходники на шашлык и обед</em> <em>· 0,05 × 200 = 10,66 BYN</em> <em>· закупает Антон Дашкевич</em> <em>· где: Антон Дашкевич</em></span><span class="q">200 шт</span></label></li>
-<li><label><input type="checkbox" data-k="mangal--stakany-05"><span class="it">Стаканы пластиковые 0,5 л <em>— Посуда и расходники на шашлык и обед</em> <em>· 0,18 × 100 = 17,53 BYN</em> <em>· закупает Антон Дашкевич</em> <em>· где: Антон Дашкевич</em></span><span class="q">100 шт</span></label></li>
-<li><label><input type="checkbox" data-k="mangal--folga-kont"><span class="it">Контейнеры фольгированные с крышкой, ≈2 л <em>— Посуда и расходники на шашлык и обед</em> <em>· 0,51 × 10 = 5,10 BYN</em> <em>· закупает Антон Дашкевич</em> <em>· где: Антон Дашкевич</em></span><span class="q">10 шт</span></label></li>
-</ul>
-<h4>Хозяйственное</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="mangal--salfetki"><span class="it">Салфетки бумажные, упаковка 100 шт <em>— Посуда и расходники на шашлык и обед</em> <em>· 2 × 3 = 6 BYN</em> <em>· закупает Ира Гутковская</em> <em>· где: Антон Дашкевич</em></span><span class="q">3 уп</span></label></li>
-<li><label><input type="checkbox" data-k="mangal--vlazhnye"><span class="it">Влажные салфетки <em>— Посуда и расходники на шашлык и обед</em> <em>· 3,43 × 5 = 17,15 BYN</em> <em>· закупает Ира Гутковская</em> <em>· где: Антон Дашкевич</em></span><span class="q">5 уп</span></label></li>
-<li><label><input type="checkbox" data-k="mangal--polotenca"><span class="it">Бумажные полотенца <em>— Посуда и расходники на шашлык и обед</em> <em>· 2,93 × 4 = 11,72 BYN</em> <em>· закупает Ира Гутковская</em> <em>· где: Антон Дашкевич</em></span><span class="q">4 рулон</span></label></li>
-<li><label><input type="checkbox" data-k="mangal--skaterti"><span class="it">Скатерти одноразовые 120×220 <em>— Посуда и расходники на шашлык и обед</em> <em>· есть, не покупаем</em> <em>· закупает Ира Гутковская</em></span><span class="q">4 шт</span></label></li>
-</ul>
-<h3>5. Алкоголь и безалкогольное<span class="own">— Ира Гутковская · 2 437,20 BYN за 22 из 22</span></h3>
-<h4>Фрукты</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="alko--apelsiny"><span class="it">Апельсины крупные <em>— Пунш для шашлыка</em> <em>· 2 × 5 = 10 BYN</em> <em>· закупает Ира Романова</em> <em>· где: Таборы</em></span><span class="q">5 шт</span></label></li>
-<li><label><input type="checkbox" data-k="alko--yabloki"><span class="it">Яблоки <em>— Пунш для шашлыка</em> <em>· 3 × 2 = 6 BYN</em> <em>· закупает Ира Романова</em> <em>· где: Таборы</em></span><span class="q">2 кг</span></label></li>
-</ul>
-<h4>Алкоголь</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="alko--nastojka-vish"><span class="it">Настойка вишнёвая 0,5 л <em>— Велком-дринк на расселение</em> <em>· 12 × 4 = 48 BYN</em></span><span class="q">4 бут</span></label></li>
-<li><label><input type="checkbox" data-k="alko--vodka"><span class="it">Водка 0,5 л <em>— Велком-дринк на расселение; Вечер 1, гала-ужин; Вечер 2, банкет</em> <em>· 13,80 × 43 = 593,40 BYN</em></span><span class="q">43 бут</span></label></li>
-<li><label><input type="checkbox" data-k="alko--samogon"><span class="it">Самогон 0,5 л <em>— Вечер 1, гала-ужин; Вечер 2, банкет</em> <em>· 7 × 10 = 70 BYN</em></span><span class="q">10 бут</span></label></li>
-<li><label><input type="checkbox" data-k="alko--vino-bel"><span class="it">Вино белое 0,75 л <em>— Вечер 1, гала-ужин; Вечер 2, банкет</em> <em>· 16 × 30 = 480 BYN</em></span><span class="q">30 бут</span></label></li>
-<li><label><input type="checkbox" data-k="alko--vino-kras"><span class="it">Вино красное 0,75 л <em>— Вечер 1, гала-ужин; Вечер 2, банкет</em> <em>· 16 × 6 = 96 BYN</em></span><span class="q">6 бут</span></label></li>
-<li><label><input type="checkbox" data-k="alko--vino-roz"><span class="it">Вино розовое 0,75 л <em>— Вечер 1, гала-ужин; Вечер 2, банкет</em> <em>· 16 × 24 = 384 BYN</em></span><span class="q">24 бут</span></label></li>
-<li><label><input type="checkbox" data-k="alko--igristoe"><span class="it">Игристое 0,75 л <em>— Вечер 1, гала-ужин</em> <em>· 12 × 12 = 144 BYN</em></span><span class="q">12 бут</span></label></li>
-<li><label><input type="checkbox" data-k="alko--viski"><span class="it">Виски 0,7 л <em>— Виски</em> <em>· 45 × 3 = 135 BYN</em></span><span class="q">3 бут</span></label></li>
-<li><label><input type="checkbox" data-k="alko--vino-punsh"><span class="it">Вино белое для пунша <em>— Пунш для шашлыка</em> <em>· 10 × 10 = 100 BYN</em> <em>· закупает Ира Романова</em></span><span class="q">10 л</span></label></li>
-<li><label><input type="checkbox" data-k="alko--pivo-l"><span class="it">Пиво <em>— День: зона шашлыка</em> <em>· есть, не покупаем</em></span><span class="q">45 л</span></label></li>
-</ul>
-<h4>Безалкогольное</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="alko--sok"><span class="it">Сок 2 л: апельсин, яблоко, вишня <em>— Вечер 1, гала-ужин; Вечер 2, банкет</em> <em>· 4,60 × 16 = 73,60 BYN</em> <em>· где: Грошик</em></span><span class="q">16 пакет</span></label></li>
-<li><label><input type="checkbox" data-k="alko--mineralka"><span class="it">Минеральная газированная 1,5 л <em>— Вечер 1, гала-ужин; Вечер 2, банкет</em> <em>· 1,50 × 36 = 54 BYN</em> <em>· где: Грошик</em></span><span class="q">36 бут</span></label></li>
-<li><label><input type="checkbox" data-k="alko--pepsi"><span class="it">Пепси 1,5 л <em>— Вечер 1, гала-ужин; Вечер 2, банкет</em> <em>· 3,38 × 12 = 40,56 BYN</em> <em>· где: Грошик</em></span><span class="q">12 бут</span></label></li>
-<li><label><input type="checkbox" data-k="alko--kola-15"><span class="it">Кола 1,5 л <em>— Вечер 1, гала-ужин; Вечер 2, банкет</em> <em>· 3,38 × 3 = 10,14 BYN</em> <em>· где: Грошик</em></span><span class="q">3 бут</span></label></li>
-<li><label><input type="checkbox" data-k="alko--sprajt"><span class="it">Спрайт 2 л <em>— Вечер 1, гала-ужин; Вечер 2, банкет</em> <em>· 4,50 × 9 = 40,50 BYN</em> <em>· где: Грошик</em></span><span class="q">9 бут</span></label></li>
-<li><label><input type="checkbox" data-k="alko--voda-negaz"><span class="it">Вода негазированная 1,5 л <em>— Вечер 2, банкет</em> <em>· 1 × 6 = 6 BYN</em> <em>· где: Грошик</em></span><span class="q">6 бут</span></label></li>
-<li><label><input type="checkbox" data-k="alko--sok-vinograd"><span class="it">Сок виноградный 2 л <em>— Пунш для шашлыка</em> <em>· 4,60 × 5 = 23 BYN</em> <em>· закупает Ира Романова</em> <em>· где: Грошик</em></span><span class="q">5 пакет</span></label></li>
-<li><label><input type="checkbox" data-k="alko--led"><span class="it">Лёд пищевой <em>— День: зона шашлыка</em> <em>· есть, не покупаем</em></span><span class="q">5 кг</span></label></li>
-<li><label><input type="checkbox" data-k="alko--bezalk-pivo"><span class="it">Пиво безалкогольное 0,5 л <em>— День: зона шашлыка</em> <em>· 2,50 × 24 = 60 BYN</em> <em>· где: Грошик</em></span><span class="q">24 банка</span></label></li>
-<li><label><input type="checkbox" data-k="alko--voda-komn"><span class="it">Минералка в номера 1,5 л <em>— Минералка в номера</em> <em>· 1,50 × 42 = 63 BYN</em> <em>· где: Грошик</em></span><span class="q">42 бут</span></label></li>
-</ul>
-<h3>6. Баня<span class="own">— Макс Богданов · 483,57 BYN за 8 из 8</span></h3>
-<h4>Алкоголь</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="banya--pivo"><span class="it">Пиво 0,5 л <em>— Напитки в баню</em> <em>· 2,61 × 100 = 260,71 BYN</em></span><span class="q">100 банка</span></label></li>
-</ul>
-<h4>Снеки</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="banya--ryba-vyal"><span class="it">Рыба сухая вяленая <em>— Рыбка и снеки</em> <em>· 100 × 1 = 100 BYN</em></span><span class="q">1 набор</span></label></li>
-<li><label><input type="checkbox" data-k="banya--orehi-suhariki"><span class="it">Орешки и сухарики <em>— Рыбка и снеки</em> <em>· 100 × 1 = 100 BYN</em></span><span class="q">1 набор</span></label></li>
-</ul>
-<h4>Одноразовая посуда</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="banya--stakany-05"><span class="it">Стаканы пластиковые 0,5 л <em>— Посуда в баню</em> <em>· 0,18 × 100 = 17,53 BYN</em> <em>· закупает Антон Дашкевич</em> <em>· где: Антон Дашкевич</em></span><span class="q">100 шт</span></label></li>
-<li><label><input type="checkbox" data-k="banya--stakany-02"><span class="it">Стаканы пластиковые 0,2 л <em>— Посуда в баню</em> <em>· 0,05 × 100 = 5,33 BYN</em> <em>· закупает Антон Дашкевич</em> <em>· где: Антон Дашкевич</em></span><span class="q">100 шт</span></label></li>
-<li><label><input type="checkbox" data-k="banya--tarelki-glub"><span class="it">Тарелки глубокие <em>— Посуда в баню</em> <em>· есть, не покупаем</em> <em>· закупает Антон Дашкевич</em></span><span class="q">20 шт</span></label></li>
-<li><label><input type="checkbox" data-k="banya--tarelki-plosk"><span class="it">Тарелки плоские <em>— Посуда в баню</em> <em>· есть, не покупаем</em> <em>· закупает Антон Дашкевич</em></span><span class="q">20 шт</span></label></li>
-</ul>
-<h4>Хозяйственное</h4><ul class="checklist">
-<li><label><input type="checkbox" data-k="banya--skatert-rulon"><span class="it">Скатерть одноразовая, рулон <em>— Посуда в баню</em> <em>· есть, не покупаем</em> <em>· закупает Антон Дашкевич</em></span><span class="q">1 рулон</span></label></li>
-</ul>
-<div class="bl-total"><span>Итого по закупкам, цены у 138 из 138 позиций</span><b>≈ 4 868,65 BYN</b></div>
+<div class="bl-total"><span>Итого по закупкам, 126 наименований</span><b>≈ 4 868,65 BYN</b></div>
 <p class="bl-note">Цены ведём в таблице, на страницу они попадают при пересборке с --sheet. Позиции с пометкой «есть, не покупаем» стоят с ценой 0: это уже есть у команды или у базы.</p></section>
 <section class="teams" id="expenses"><h2>Расходы и баланс</h2><p class="t-sub">Фиксированные платежи и закупки по ценам из таблицы, BYN.</p><table class="teams-tbl"><thead><tr><th>Статья</th><th class="num">BYN</th></tr></thead><tbody>
 <tr><td>Баня <span class="tag">4 часа</span></td><td class="num">320</td></tr>
@@ -1647,7 +1589,8 @@ var SYNC_URL = "";
     Object.keys(boxes).forEach(function (k) {
       var st = state[k] || {};
       var box = boxes[k];
-      box.checked = !!st.checked;
+      // нет своей отметки — берём «Куплено» из таблицы, которое пришло со сборкой
+      box.checked = st.checked !== undefined ? !!st.checked : box.defaultChecked;
       var label = box.parentNode;
       var tag = label.querySelector('.who');
       if (st.checked && st.who) {
