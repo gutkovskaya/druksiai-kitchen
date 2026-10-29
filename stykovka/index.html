@@ -560,7 +560,61 @@
   .listbox li { margin:5px 0; }
   .buylist h4 { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin:14px 0 4px; }
   .buylist h3 .own { text-transform:none; letter-spacing:0; font-weight:500; color:var(--muted); margin-left:6px; }
-  @media (max-width:560px){ .dish-head{flex-wrap:wrap;row-gap:8px;} .dish-head h2{flex-basis:100%;font-size:19px;} .meals.five{grid-template-columns:1fr;} .wrap{padding:28px 16px 60px;} .dish,.teams,.buylist,.listbox{padding-left:18px;padding-right:18px;} }
+  .mnav { display:none; }
+  @media (max-width:560px){
+    .wrap{padding:16px 12px 48px;}
+    header.page h1{font-size:24px;line-height:1.2;}
+    header.page p.sub{font-size:14px;}
+    header.page .facts{grid-template-columns:repeat(4,1fr);gap:6px;margin:12px 0 0 !important;}
+    header.page .fact{padding:8px 8px;border-radius:10px;}
+    header.page .fact .label{font-size:9.5px;letter-spacing:.02em;}
+    header.page .fact .value{font-size:17px;}
+    .mnav{display:flex;gap:6px;position:sticky;top:0;z-index:20;margin:0 -12px;padding:8px 12px;
+          background:var(--bg,#f5f3ee);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none;}
+    .mnav::-webkit-scrollbar{display:none;}
+    .mnav a{flex:none;font-size:13px;font-weight:600;padding:6px 11px;border-radius:999px;background:var(--card);
+            border:1px solid var(--accent-line);color:var(--accent);text-decoration:none;white-space:nowrap;}
+    .sheet-link{margin-top:12px;padding:10px 14px;font-size:14px;}
+    .important{margin-top:12px;padding:10px 14px;}
+    .important ul{font-size:14px;padding-left:18px;}
+    .menu-board{margin-top:18px;}
+    .meals.five{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;
+                margin:0 -12px;padding:4px 12px 10px;scrollbar-width:none;align-items:flex-start;}
+    .menu-board .mb-title::after{content:" · листай →";font-weight:500;text-transform:none;letter-spacing:0;}
+    .meals.five::-webkit-scrollbar{display:none;}
+    .meals.five .meal{flex:0 0 82%;scroll-snap-align:start;padding:14px 14px 16px;}
+    .meal .meal-head h3{font-size:16px;}
+    .meal ul li{font-size:13.5px;padding-top:4px;padding-bottom:4px;}
+    .menu-legend{font-size:12px;}
+    .toc{padding:14px 12px !important;}
+    .toc h2{font-size:17px;margin-bottom:8px;}
+    .toc-grid{grid-template-columns:1fr 1fr;gap:6px;}
+    .toc-btn{gap:8px;padding:8px 10px;border-radius:11px;}
+    .toc-btn .ti{font-size:18px;}
+    .toc-btn .tt b{font-size:13px;line-height:1.25;}
+    .toc-btn .tt small{font-size:11px;}
+    .toc-btn .go{display:none;}
+    .block-sec{margin:30px 0 4px;padding-top:16px;}
+    .block-sec h2{font-size:21px;scroll-margin-top:56px;}
+    .block-sec p.bsum{font-size:13.5px;}
+    .dish{margin:8px 0;border-radius:14px;padding-left:14px;padding-right:14px;}
+    .dish-head{flex-wrap:wrap;row-gap:6px;column-gap:8px;padding:12px 0;}
+    .dish-head h2{flex-basis:100%;font-size:16.5px;}
+    .dish-head .meal-tag{font-size:10.5px;padding:2px 8px;}
+    .dish-head .dish-chev{padding:4px 10px;font-size:12px;}
+    .dish .info{font-size:13px;}
+    .dish .facts{grid-template-columns:repeat(3,1fr);gap:6px;margin:0 0 14px;}
+    .dish .fact{padding:7px 9px;border-radius:10px;}
+    .dish .fact .label{font-size:10px;}
+    .dish .fact .value{font-size:15px;}
+    .teams,.buylist,.listbox{padding-left:14px;padding-right:14px;}
+    .buylist h2,.teams h2{font-size:20px;}
+    ul.checklist label{padding:6px 4px;gap:8px;}
+    ul.checklist .it{font-size:14px;}
+    ul.checklist .it em{font-size:11.5px;}
+    ul.checklist .q{font-size:13px;}
+    [id]{scroll-margin-top:56px;}
+  }
 </style>
 </head>
 <body>
@@ -577,6 +631,7 @@
     </div>
   </header>
 
+<nav class="mnav"><a href="#toc">☰ Блоки</a><a href="#bar">🍸 1</a><a href="#dokorm">🥪 2</a><a href="#osn">🧺 3</a><a href="#mangal">🔥 4</a><a href="#alko">🍷 5</a><a href="#banya">🧖 6</a><a href="#buylist">🛒 Закупки</a><a href="#expenses">💰 Баланс</a></nav>
 <a class="sheet-link" href="https://docs.google.com/spreadsheets/d/160hJt7asUIN4v0-WHG86glgGFCWTEzlcik0A4lZailw/edit" target="_blank" rel="noopener">📊 Таблица закупок и бюджета в Google Sheets →</a>
 <div class="important"><b>Важно</b><ul><li>Взять ледогенератор — <b>Макс Богданов</b></li><li>Взять слайсер для нарезки — <b>Света Ризмакова</b></li><li>Найти и взять с собой ≈20+ шампуров и 4+ решёток-гриль — <b>Витя Кузнецов</b></li></ul></div>
 <section class="menu-board"><p class="mb-title">Меню базы и что добавляем мы</p><div class="meals five">
@@ -587,7 +642,7 @@
 <div class="meal"><div class="meal-head"><span class="ic">🌙</span><h3>Второй ужин</h3><span class="date">сб 31.10</span></div><ul><li>Салат морковь по-корейски</li><li>Салат «Несвижский»</li><li>Биточки куриные с сыром</li><li>Рис попури</li><li>Напиток клюквенный</li><li>Жульен грибной в тарталетках, 100 г</li><li>Салат из свежих помидоров, капусты и перца</li><li>Салат «Оливье» с консервированным огурцом</li></ul><div class="to-table"><b>Наше:</b> закуски вечера 2, хлеб, соусы, алкоголь</div></div>
 <div class="meal"><div class="meal-head"><span class="ic">🌅</span><h3>Второй завтрак</h3><span class="date">вс 01.11</span></div><ul><li>Геркулес</li><li>Сосиски</li><li>Бульон куриный</li><li>Компот из яблок</li></ul><div class="to-table"><b>Наше:</b> сгущёнка, чай, кофе со сливками, сладкое</div></div>
 </div><p class="menu-legend">Карточки с пометкой «наше» готовим мы. В меню, которое прислала база, второй день стоял на 01.11, а третий на 02.11. Здесь даты по программе стыковки.</p></section>
-<nav class="toc"><h2>Блоки</h2><div class="toc-grid">
+<nav class="toc" id="toc"><h2>Блоки</h2><div class="toc-grid">
 <a class="toc-btn" href="#bar"><span class="ti">🍸</span><span class="tt"><b>1. Бар «Водопой»</b><small>Ира Романова</small></span><span class="go">→</span></a>
 <a class="toc-btn" href="#dokorm"><span class="ti">🥪</span><span class="tt"><b>2. Докорм: закуски, хлеб, завтраки</b><small>Ира Гутковская</small></span><span class="go">→</span></a>
 <a class="toc-btn" href="#osn"><span class="ti">🧺</span><span class="tt"><b>3. Оснащение</b><small>Ира Гутковская</small></span><span class="go">→</span></a>
